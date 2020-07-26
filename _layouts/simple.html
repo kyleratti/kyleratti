@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="{{ site.description }}" />
+    <meta name="keywords" content="{{ page.tags | join: ", " }}" />
+    <meta name="author" content="{{ site.author }}" />
+
+    <title>{{ page.title }} 💻 {{ site.title }}</title>
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/assets/css/app.css" />
+  </head>
+  <body>
+    <div id="page">
+      <nav id="top">
+        <h1>{{ site.title }}</h1>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/tucker.html">Tucker's Page</a></li>
+          <li><a href="/about.html">About</a></li>
+        </ul>
+      </nav>
+
+      <div id="content">
+        <h1>{{ page.title }} <small>{{ page.date | date: "shared %Y-%m-%d" }}</small></h1>
+
+        <section>
+          {{ content }}
+        </section>
+
+      </div>
+
+        <footer>
+          <a href="https://kyleratti.me" target="_blank" rel="nofollow"
+            >GitHub</a
+          >
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

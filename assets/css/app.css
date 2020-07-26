@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(25, 25, 25);
+  color: rgb(82, 82, 82);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#page {
+  width: 100%;
+  max-width: 1344px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a,
+a:hover,
+a:visited {
+  text-decoration: none;
+  color: salmon;
+}
+
+a:hover {
+  /* font-weight: bold; */
+  text-decoration: underline;
+}
+
+nav,
+#content {
+  margin-bottom: 0.25em;
+}
+
+nav,
+footer {
+  background-color: rgb(109, 0, 0);
+  width: 100%;
+  padding: 0.25em;
+}
+
+nav,
+#content,
+footer {
+  padding-left: 1em;
+}
+
+nav h1 {
+  display: inline-block;
+  color: white;
+  margin-right: 1em;
+}
+
+nav ul {
+  display: inline;
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li:not(:first-child) {
+  margin-left: 0.5em;
+}
+
+#content {
+  background-color: rgb(35, 35, 35);
+  color: white;
+}
+
+#content a::before {
+  content: ">";
+  color: white;
+  font-weight: bold;
+  margin-right: 0.25em;
+}
+
+#content h1 small {
+  font-size: 0.5em;
+  font-weight: normal;
+  color: rgb(219, 219, 219);
+}
+
+a::before,
+a::after {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+hr {
+  margin: 0.75em 0;
+}
+
+.postsList {
+  list-style: none;
+}
+
+.postListing {
+  font-weight: bold;
+}
+
+.postListing .postDate {
+  font-weight: normal;
+  font-size: 0.75em;
+}
