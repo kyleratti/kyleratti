@@ -1,4 +1,4 @@
-title: Kyle's Thoughts
+title: Kyle Ratti
 email: hi@kyleratti.me
 author: Kyle Ratti
 description: >-
@@ -9,9 +9,16 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://kyleratti.me" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: kyleratti
 
+target-blank:
+  add_css_classes: extLink
+
+markdown: kramdown
+highlighter: rouge
+
 # Build settings
 theme: minima
 plugins:
+  - jekyll-target-blank
   - jekyll-feed
 # Exclude from processing.
 # The following items will not be processed, by default.

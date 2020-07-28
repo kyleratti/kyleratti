@@ -4,29 +4,63 @@
   padding: 0;
 }
 
+:root {
+  --colorBg: #360259;
+  --colorAlt: #f24405;
+  --colorAlt2: #f29f05;
+  --colorLinks: #ee05f2;
+  --colorLinkHover: #27368c;
+}
+
 body {
-  background-color: rgb(25, 25, 25);
-  color: rgb(82, 82, 82);
+  padding-left: calc(
+    100vw - 100%
+  ); /* From https://stackoverflow.com/a/30293718 */
+  background-color: var(--colorBg);
+  color: var(--colorAlt2);
   font-family: Arial, Helvetica, sans-serif;
 }
 
 #page {
   width: 100%;
-  max-width: 1344px;
+  max-width: 1152px;
   margin-left: auto;
   margin-right: auto;
 }
 
-a,
-a:hover,
-a:visited {
+nav a,
+nav a:hover,
+nav a:visited {
   text-decoration: none;
-  color: salmon;
+  color: var(--colorLinkHover);
+}
+
+#content a,
+#content a:hover,
+#content a:visited {
+  text-decoration: none;
+  color: var(--colorLinks);
 }
 
 a:hover {
   /* font-weight: bold; */
   text-decoration: underline;
+}
+
+.extLink {
+  white-space: nowrap;
+}
+
+ul {
+  margin-left: 0;
+}
+
+#content .extLink:after {
+  display: inline-block;
+  text-decoration: none;
+  padding-left: 0.2em;
+  font-size: 0.85em;
+  content: "🌎";
 }
 
 nav,
@@ -36,7 +70,7 @@ nav,
 
 nav,
 footer {
-  background-color: rgb(109, 0, 0);
+  background-color: var(--colorAlt);
   width: 100%;
   padding: 0.25em;
 }
@@ -44,7 +78,7 @@ footer {
 nav,
 #content,
 footer {
-  padding-left: 1em;
+  padding: 0.5em;
 }
 
 nav h1 {
@@ -59,7 +93,7 @@ nav ul {
 }
 
 nav ul li {
-  display: inline;
+  display: inline-block;
 }
 
 nav ul li:not(:first-child) {
@@ -67,12 +101,24 @@ nav ul li:not(:first-child) {
 }
 
 #content {
-  background-color: rgb(35, 35, 35);
+  /* background-color: var(--colorAlt); */
   color: white;
 }
 
-#content a::before {
+#content h1,
+#content h2,
+#content h3,
+#content h4,
+#content h5,
+#content h6 {
+  color: var(--colorAlt2);
+  font-weight: bold;
+}
+
+.postListing a:before {
   content: ">";
+  text-decoration: none;
+  display: inline-block;
   color: white;
   font-weight: bold;
   margin-right: 0.25em;
@@ -106,4 +152,65 @@ hr {
 .postListing .postDate {
   font-weight: normal;
   font-size: 0.75em;
+}
+
+section {
+  padding: 1em;
+  padding-top: 0;
+}
+
+p {
+  margin: 1em 0;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+}
+
+img[src$=".svg"] {
+  background-color: rgb(219, 219, 219);
+  padding: 1em;
+}
+
+table {
+  margin: 0 auto;
+}
+
+thead {
+  text-align: center;
+}
+
+tbody td {
+  padding: 0.25em;
+}
+
+tbody {
+  color: rgb(219, 219, 219);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--colorLinkHover);
+}
+
+.rightAlign {
+  text-align: right;
+}
+
+code,
+.highlighter-rouge,
+.highlighter-rouge .highlight {
+  background-color: var(--colorLinkHover);
+  /* padding: 0.2em; */
+  /* border: 1px solid rgb(219, 219, 219); */
+}
+
+.highlight .s {
+  color: var(--colorAlt2);
+}
+
+@media (min-width: 800px) {
+  section {
+    padding: 5em;
+  }
 }

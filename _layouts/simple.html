@@ -6,11 +6,12 @@
     <meta name="keywords" content="{{ page.tags | join: ", " }}" />
     <meta name="author" content="{{ site.author }}" />
 
-    <title>{{ page.title }} 💻 {{ site.title }}</title>
+    <title>{{ page.title }}</title>
 
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link rel="stylesheet" href="/assets/main.css" />
     <link rel="stylesheet" href="/assets/css/app.css" />
   </head>
   <body>
@@ -18,14 +19,18 @@
       <nav id="top">
         <h1>{{ site.title }}</h1>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/tucker.html">Tucker's Page</a></li>
-          <li><a href="/about.html">About</a></li>
+          <li><a href="/">Blog</a></li>
+          <!-- <li><a href="/tucker.html">Tucker's Page</a></li> -->
+          <li><a href="/about/">About</a></li>
         </ul>
       </nav>
 
       <div id="content">
-        <h1>{{ page.title }} <small>{{ page.date | date: "shared %Y-%m-%d" }}</small></h1>
+        {% if page.custom-layout != true %}
+          <h1>{{ page.title }} <small title="{{ page.date | date: "%A, %B %e, %Y" }}">{{ page.date | date: "shared %Y-%m-%d" }}</small></h1>
+
+          <hr />
+        {% endif %}
 
         <section>
           {{ content }}

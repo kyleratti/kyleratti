@@ -2,4 +2,12 @@
 layout: simple
 ---
 
-This is a post. {{ content | newline_to_br }}
+{{ content }}
+
+<h3>Questions? Thoughts? Concerns?</h3>
+
+I'd love to hear from you! Send me an e-mail:
+<a
+  href="mailto:hi@kyleratti.me?subject={{ "Thoughts: " | append: page.title | url_encode }}"
+  >hi@kyleratti.me</a
+>
