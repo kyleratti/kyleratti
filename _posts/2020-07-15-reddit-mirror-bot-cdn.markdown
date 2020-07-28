@@ -11,13 +11,13 @@ tags:
 
 The more technical people I speak to about my Reddit Mirror Bot project, [Tuckbot](https://github.com/kyleratti/tuckbot-downloader), the more interest there is in the logistics on serving a relatively large amount of video traffic for a hobby project.
 
-If you're not familiar with this project, Tuckbot is a mirror bot I built for the Reddit community [/r/PublicFreakout](https://reddit.com/r/publicfreakout) using TypeScript and React on NodeJS. It scans new link submissions to the subreddit, attempts to download the video via [youtube-dl](https://youtube-dl.org/), uploads the video to [DigitalOcean Spaces](https://www.digitalocean.com/products/spaces/), and shares the link on Reddit for visitors to use.
+If you're not familiar with this project, Tuckbot is a mirror bot I built for the Reddit community [/r/PublicFreakout](https://reddit.com/r/PublicFreakout) using TypeScript with React and NodeJS. It scans new link submissions to the subreddit, attempts to download the video using the brilliant [youtube-dl](https://youtube-dl.org/) application, uploads the video to [DigitalOcean Spaces](https://www.digitalocean.com/products/spaces/), and shares the link on Reddit for visitors to use.
 
-This post is going to be a fairly deep dive on the approach I took, why I took it, and how I implemented it.
+This post is going to be a fairly deep dive on the approach I took to address serving 10TB of video bandwidth per month, why I took it, and how I implemented it.
 
 ## Average Traffic
 
-Tuckbot originally launched in August of 2018. At some point, I took it offline and started over with `version 2.0`. The amount of traffic since the re-launch of Tuckbot in September of 2019 has remained pretty consistent:
+Tuckbot originally launched in August of 2018 in a very basic form. At some point, I took it offline and re-launched at `version 2.0` in September of 2019. It was during the re-launch that I added Google Analytics to the site for the first time, and since that time traffic has remained pretty consistent:
 
 <table style="max-width: 500px">
   <thead>
@@ -85,7 +85,7 @@ This comes out to an average of **215,823 users** and **316,550 page views** _pe
 
 ## Leveraging CloudFlare to Serve 316,550 Monthly Views
 
-[CloudFlare](https://cloudflare.com/) runs a massive global infrastructure of reverse proxy servers for web applications, available in free and paid tiers. I have historically been a huge proponent of CloudFlare and their services. For small hobby projects like mine, they offer a service that hides your upstream server's IP address, checks that the request to your website is legitimate, and cache static content to speed up your site and reduce your bandwidth usage. That's pretty slick!
+[CloudFlare](https://cloudflare.com/) runs a massive global infrastructure of reverse proxy servers for web applications that's available in free and paid tiers. I have historically been a huge proponent of CloudFlare and their services; for small hobby projects like mine, they offer a service that hides your upstream server's IP address, checks that the request to your website is legitimate, and cache static content to speed up your site and reduce your bandwidth usage. That's pretty slick!
 
 By default, CloudFlare only caches text-based and image file - _not_ video file - however it turns out you _can_ force video files to be cached: The Page Rules feature of CloudFlare allows you to set specific URL patterns to **Cache Everything** on CloudFlare's edge:
 
@@ -97,11 +97,11 @@ If you're using that Page Rules trick, don't expect to use it too long; while st
 
 And really, I should've seen it coming: you can't reasonably expect CloudFlare, at no cost, to cache 5TB of videos across their edge and serve 20TB of bandwidth to visitors. So as Tuckbot grew and more videos were being served, they banned me.
 
-Yep. Fair. Sorry about that folks - that was stupid of me.
+Yep. Fair.
 
 ## Building a Simple CDN Infrastructure
 
-Having received no notification or explanation as to why CloudFlare was no longer caching or proxying **tuckbot.tv**, I was scrambing to build a mini "CDN" that could handle a peak of 400 users/minute. Sticking with what I know, I decided to use three **NGINX** servers in a reverse proxy configuration in front of my application server with heavy caching:
+Having received no notification or explanation as to why CloudFlare was no longer caching or proxying **tuckbot.tv**, but knowing exactly why CloudFlare was no longer caching or proxying **tuckbot.tv**, I was scrambing to build a mini "CDN" that could handle a peak of 400 users/minute. Sticking with what I know, I decided to use three **NGINX** servers in a reverse proxy configuration in front of my application server with heavy caching:
 
 <img src="/assets/2020-07-15-reddit-mirror-bot-cdn/img/tuckbot-cdn.svg" alt="Graphic of 2 proxy servers reading from an application server which reads from cloud-based object storage" />
 
@@ -152,8 +152,6 @@ In a real world scenario, you would want to use your own load-balancing solution
 
 ```shell_session
 $ nslookup cdn.tuckbot.tv
-Server:         127.0.0.53
-Address:        127.0.0.53#53
 
 Non-authoritative answer:
 Name:   cdn.tuckbot.tv
@@ -168,6 +166,6 @@ Easy enough!
 
 ## Wrapping Up
 
-And that's it! I think this solution is a fairly clever balance of complexity, cost, and value: for \$20/mo I have **450GB** of cache disk space and **36TB** of bandwidth between three CDN servers, each closest to the majority of visitors, and I only have to hit my upstream server and S3 storage a maximum of three times every 14 days.
+And that's it! I think this solution is a fairly clever balance of complexity, cost, and value: for \$30/mo I have **450GB** of cache disk space and **36TB** of bandwidth between three CDN servers, each closest to the majority of visitors, and I only have to hit my upstream server and S3 storage a maximum of three times every 14 days.
 
 We'll see where this takes me - I'd love to expand on it more as the Tuckbot project matures.

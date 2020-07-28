@@ -40,11 +40,23 @@ nav a:visited {
 #content a:visited {
   text-decoration: none;
   color: var(--colorLinks);
+  font-weight: bold;
+  text-shadow: 1px 0 black;
+  background-image: linear-gradient(
+    to top,
+    var(--colorAlt2) 50%,
+    var(--colorLinkHover) 50%
+  );
+  padding: 0.025em 0.2em;
+  border-bottom: 2px solid var(--colorAlt2);
+  transition: background-position 0.2s, color 0.15s;
+  background-size: 100% 200%;
 }
 
-a:hover {
-  /* font-weight: bold; */
-  text-decoration: underline;
+#content a:hover {
+  color: var(--colorBg);
+  background-position: 0 100%;
+  text-shadow: none;
 }
 
 .extLink {
@@ -55,12 +67,25 @@ ul {
   margin-left: 0;
 }
 
-#content .extLink:after {
+#content .extLink:after,
+#content a[href^="mailto:"]:after {
   display: inline-block;
   text-decoration: none;
   padding-left: 0.2em;
   font-size: 0.85em;
+}
+
+#content .extLink:after {
   content: "🌎";
+}
+
+#content a[href^="mailto:"]:after {
+  content: "📧";
+}
+
+#content .extLink[href^="https://github.com/"]:after
+{
+  content: "GH";
 }
 
 nav,
@@ -94,6 +119,14 @@ nav ul {
 
 nav ul li {
   display: inline-block;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  text-shadow: 1px 1px var(--colorBg);
+}
+
+nav ul li:hover {
+  text-shadow: 2px 2px var(--colorAlt2);
 }
 
 nav ul li:not(:first-child) {
@@ -105,6 +138,12 @@ nav ul li:not(:first-child) {
   color: white;
 }
 
+nav {
+  box-shadow: 1px 1px var(--colorAlt2), 2px 2px var(--colorAlt2),
+    3px 3px var(--colorAlt2), 4px 4px var(--colorLinks),
+    5px 5px var(--colorLinks);
+}
+
 #content h1,
 #content h2,
 #content h3,
@@ -113,6 +152,41 @@ nav ul li:not(:first-child) {
 #content h6 {
   color: var(--colorAlt2);
   font-weight: bold;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+#content h1.postTitle,
+#content h2.postDate {
+  display: block;
+  margin: 0;
+}
+
+#content h1.postTitle {
+  text-align: center;
+  color: var(--colorAlt);
+}
+
+#content h2.postDate {
+  text-align: right;
+  color: var(--colorAlt2);
+  font-size: 1em;
+  font-weight: normal;
+  text-transform: lowercase;
+}
+
+#content hr {
+  border: 0;
+  height: 0.1em;
+  background: linear-gradient(
+    to right,
+    var(--colorBg) 0%,
+    var(--colorLinks) 20%,
+    var(--colorAlt) 40%,
+    var(--colorAlt2) 60%,
+    var(--colorLinkHover) 80%,
+    var(--colorBg) 100%
+  ); /* W3C */
 }
 
 .postListing a:before {
@@ -159,6 +233,11 @@ section {
   padding-top: 0;
 }
 
+section:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+}
+
 p {
   margin: 1em 0;
 }
@@ -201,12 +280,18 @@ code,
 .highlighter-rouge,
 .highlighter-rouge .highlight {
   background-color: var(--colorLinkHover);
-  /* padding: 0.2em; */
-  /* border: 1px solid rgb(219, 219, 219); */
+  border-radius: 0;
 }
 
 .highlight .s {
   color: var(--colorAlt2);
+}
+
+.highlight .mi {
+  color: var(--colorAlt);
+}
+.highlight .nv {
+  color: var(--colorLinks);
 }
 
 @media (min-width: 800px) {

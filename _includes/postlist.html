@@ -1,6 +1,9 @@
+{% assign targetPosts = site.posts %} {% if include.show-category %} {% assign
+targetPosts = site.posts | group_by: "category" %} {% endif %}
+
 <ul class="postsList">
-  {% for post in site.posts | sort: 'date' %} {% if include.category == "all" or
-  post.categories contains include.category %}
+  {% for post in targetPosts | sort: 'date' %} {% if include.category == "all"
+  or post.categories contains include.category %}
   <li class="postListing">
     <a href="{{ post.url }}"
       >{{ post.title }}
