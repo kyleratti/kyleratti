@@ -87,6 +87,11 @@ ul {
   content: "GH";
 }
 
+#content a[href^="https://reddit.com/r/"]:after
+{
+  content: "REDDIT";
+}
+
 nav,
 #content {
   margin-bottom: 0.25em;
