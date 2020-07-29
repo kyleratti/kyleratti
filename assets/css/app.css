@@ -71,7 +71,8 @@ ul {
   font-size: 0.85em;
 }
 
-#content a:not([href^="/"]):not([href^="#"]):after {
+#content a[href^="https://"]:after
+{
   content: "🌎";
 }
 
