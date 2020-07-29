@@ -51,16 +51,13 @@ nav a:visited {
   border-bottom: 2px solid var(--colorAlt2);
   transition: background-position 0.2s, color 0.15s, text-shadow 0.15s;
   background-size: 100% 200%;
+  white-space: nowrap;
 }
 
 #content a:hover {
   color: var(--colorBg);
   background-position: 0 100%;
   text-shadow: none;
-}
-
-.extLink {
-  white-space: nowrap;
 }
 
 ul {
