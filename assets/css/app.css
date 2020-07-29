@@ -92,6 +92,15 @@ ul {
   content: "REDDIT";
 }
 
+#content a small:before {
+  content: "shared ";
+}
+
+#content a small {
+  font-weight: normal;
+  font-size: 0.7em;
+}
+
 nav,
 #content {
   margin-bottom: 0.25em;

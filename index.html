@@ -33,10 +33,12 @@ title: Blog
   <li>
     <a href="{{ post.url }}"
       >{{ post.title }}
-      <time
-        datetime="{{ post.date | date_to_xmlschema }}"
-        itemprop="datePublished"
-        >{{ post.date | date: "%B %d, %Y" }}</time
+      <small
+        ><time
+          datetime="{{ post.date | date_to_xmlschema }}"
+          itemprop="datePublished"
+          >{{ post.date | date: "%B %d, %Y" }}</time
+        ></small
       ></a
     >
   </li>
