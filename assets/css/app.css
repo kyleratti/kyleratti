@@ -49,7 +49,7 @@ nav a:visited {
   );
   padding: 0.025em 0.2em;
   border-bottom: 2px solid var(--colorAlt2);
-  transition: background-position 0.2s, color 0.15s;
+  transition: background-position 0.2s, color 0.15s, text-shadow 0.15s;
   background-size: 100% 200%;
 }
 
@@ -67,15 +67,14 @@ ul {
   margin-left: 0;
 }
 
-#content .extLink:after,
-#content a[href^="mailto:"]:after {
+#content a:after {
   display: inline-block;
   text-decoration: none;
   padding-left: 0.2em;
   font-size: 0.85em;
 }
 
-#content .extLink:after {
+#content a:not([href^="/"]):after {
   content: "🌎";
 }
 
@@ -83,7 +82,7 @@ ul {
   content: "📧";
 }
 
-#content .extLink[href^="https://github.com/"]:after
+#content a[href^="https://github.com/"]:after
 {
   content: "GH";
 }

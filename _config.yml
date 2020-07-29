@@ -19,7 +19,6 @@ highlighter: rouge
 # Build settings
 theme: minima
 plugins:
-  - jekyll-target-blank
   - jekyll-feed
 # Exclude from processing.
 # The following items will not be processed, by default.
