@@ -194,12 +194,11 @@ nav {
   background: linear-gradient(
     to right,
     var(--colorBg) 0%,
-    var(--colorLinks) 20%,
-    var(--colorAlt) 40%,
-    var(--colorAlt2) 60%,
-    var(--colorLinkHover) 80%,
-    var(--colorBg) 100%
-  ); /* W3C */
+    var(--colorLinks) 25%,
+    var(--colorAlt) 50%,
+    var(--colorAlt2) 75%,
+    var(--colorLinkHover) 100%
+  );
 }
 
 .postListing a:before {
