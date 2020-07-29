@@ -194,16 +194,15 @@ img {
   height: 0.1em;
   background: linear-gradient(
     to right,
-    var(--colorBg) 0%,
-    var(--colorLinks) 12.5%,
-    var(--colorAlt) 25%,
-    var(--colorAlt2) 37.5%,
-    var(--colorLinkHover) 40%,
-    var(--colorLinkHover) 52.5%,
-    var(--colorAlt2) 65%,
-    var(--colorAlt) 77.5%,
-    var(--colorLinks) 90%,
-    var(--colorBg) 100%
+    var(--colorBg) 0% 11%,
+    var(--colorLinks) 11% 22%,
+    var(--colorAlt) 22% 33%,
+    var(--colorAlt2) 33% 44%,
+    var(--colorLinkHover) 44% 55%,
+    var(--colorAlt2) 55% 66%,
+    var(--colorAlt) 66% 77%,
+    var(--colorLinks) 77% 88%,
+    var(--colorBg) 88% 100%
   );
 }
 
