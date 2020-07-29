@@ -192,10 +192,15 @@ nav {
   background: linear-gradient(
     to right,
     var(--colorBg) 0%,
-    var(--colorLinks) 25%,
-    var(--colorAlt) 50%,
-    var(--colorAlt2) 75%,
-    var(--colorLinkHover) 100%
+    var(--colorLinks) 12.5%,
+    var(--colorAlt) 25%,
+    var(--colorAlt2) 37.5%,
+    var(--colorLinkHover) 40%,
+    var(--colorLinkHover) 52.5%,
+    var(--colorAlt2) 65%,
+    var(--colorAlt) 77.5%,
+    var(--colorLinks) 90%,
+    var(--colorBg) 100%
   );
 }
 
