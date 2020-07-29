@@ -145,11 +145,14 @@ nav ul li:not(:first-child) {
 }
 
 #content {
-  /* background-color: var(--colorAlt); */
   color: white;
 }
 
-nav {
+.boxShadow,
+.highlight,
+nav,
+table,
+img {
   box-shadow: 1px 1px var(--colorAlt2), 2px 2px var(--colorAlt2),
     3px 3px var(--colorAlt2), 4px 4px var(--colorLinks),
     5px 5px var(--colorLinks);
