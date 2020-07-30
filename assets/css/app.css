@@ -5,19 +5,30 @@
 }
 
 :root {
-  --colorBg: #360259;
-  --colorAlt: #f24405;
-  --colorAlt2: #f29f05;
-  --colorLinks: #ee05f2;
-  --colorLinkHover: #27368c;
+  --colorBg: 54, 2, 89;
+  --colorAlt: 242, 68, 5;
+  --colorAlt2: 242, 159, 5;
+  --colorLinks: 238, 5, 242;
+  --colorLinkHover: 39, 54, 140;
+}
+
+:root {
+  --rgbBg: rgb(var(--colorBg));
+  --rgbAlt: rgb(var(--colorAlt));
+  --rgbAlt2: rgb(var(--colorAlt2));
+  --rgbLinks: rgb(var(--colorLinks));
+  --rgbLinkHover: rgb(var(--colorLinkHover));
 }
 
 body {
   padding-left: calc(
     100vw - 100%
   ); /* From https://stackoverflow.com/a/30293718 */
-  background-color: var(--colorBg);
-  color: var(--colorAlt2);
+  background-color: var(--rgbBg);
+  background: linear-gradient(to top, var(--rgbBg) 50%, #09000f 75%);
+  background-attachment: fixed;
+  /* background: linear-gradient(45deg, red, blue); */
+  color: var(--rgbAlt2);
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -28,34 +39,45 @@ body {
   margin-right: auto;
 }
 
+nav {
+  display: grid;
+  grid-template-areas: "nav sky";
+  grid-template-columns: auto 6em;
+  height: 6em;
+}
+
 nav a,
 nav a:hover,
 nav a:visited {
   text-decoration: none;
-  color: var(--colorLinkHover);
+  color: var(--rgbLinkHover);
+}
+
+#navLinks {
+  grid-area: "nav";
 }
 
 #content a,
 #content a:hover,
 #content a:visited {
   text-decoration: none;
-  color: var(--colorLinks);
+  color: var(--rgbLinks);
   font-weight: bold;
   text-shadow: 1px 0 black;
   background-image: linear-gradient(
     to top,
-    var(--colorAlt2) 50%,
-    var(--colorLinkHover) 50%
+    var(--rgbAlt2) 50%,
+    var(--rgbLinkHover) 50%
   );
   padding: 0.025em 0.2em;
-  border-bottom: 2px solid var(--colorAlt2);
+  border-bottom: 2px solid var(--rgbAlt2);
   transition: background-position 0.2s, color 0.15s, text-shadow 0.15s;
   background-size: 100% 200%;
   white-space: nowrap;
 }
 
 #content a:hover {
-  color: var(--colorBg);
+  color: var(--rgbBg);
   background-position: 0 100%;
   text-shadow: none;
 }
@@ -106,12 +128,16 @@ nav,
 
 nav,
 footer {
-  background-color: var(--colorAlt);
+  /* background-color: var(--colorAlt); */
+  background-image: linear-gradient(
+      176deg,
+      rgba(var(--colorLinks), 0.5),
+      rgba(var(--colorBg), 0.2) 80%
+    ),
+    linear-gradient(36deg, rgb(var(--colorAlt)), rgb(var(--colorAlt2)) 85%);
   width: 100%;
-  padding: 0.25em;
 }
 
-nav,
 #content,
 footer {
   padding: 0.5em;
@@ -133,15 +159,25 @@ nav ul li {
   font-weight: bold;
   font-size: 1.5em;
   text-transform: uppercase;
-  text-shadow: 1px 1px var(--colorBg);
+  text-shadow: 1px 1px var(--rgbBg);
 }
 
 nav ul li:hover {
-  text-shadow: 2px 2px var(--colorAlt2);
+  text-shadow: 2px 2px var(--rgbAlt2);
 }
 
 nav ul li:not(:first-child) {
   margin-left: 0.5em;
+}
+
+#siteIcon {
+  background-color: transparent;
+  display: inline-block;
+  border: 2px solid black;
+  background-image: url(/assets/img/me_small.jpg);
+  width: 120px;
+  height: 120px;
+  /* clip-path: circle(50px at center); */
 }
 
 #content {
@@ -153,9 +189,22 @@ nav ul li:not(:first-child) {
 nav,
 table,
 img {
-  box-shadow: 1px 1px var(--colorAlt2), 2px 2px var(--colorAlt2),
-    3px 3px var(--colorAlt2), 4px 4px var(--colorLinks),
-    5px 5px var(--colorLinks);
+  box-shadow: 1px 1px var(--rgbAlt2), 2px 2px var(--rgbAlt2),
+    3px 3px
+      linear-gradient(
+        to right,
+        var(--rgbBg) 11%,
+        var(--rgbLinks) 11% 22%,
+        var(--rgbAlt) 22% 33%,
+        var(--rgbAlt2) 33% 44%,
+        var(--rgbLinkHover) 44% 55%,
+        var(--rgbAlt2) 55% 66%,
+        var(--rgbAlt) 66% 77%,
+        var(--rgbLinks) 77% 88%,
+        var(--rgbBg) 88% 100%
+      );
+  box-shadow: 1px 1px var(--rgbAlt2), 2px 2px var(--rgbAlt2),
+    3px 3px var(--rgbAlt2), 4px 4px var(--rgbLinks), 5px 5px var(--rgbLinks);
 }
 
 #content h1,
@@ -164,10 +213,23 @@ img {
 #content h4,
 #content h5,
 #content h6 {
-  color: var(--colorAlt2);
+  color: var(--rgbAlt2);
   font-weight: bold;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
+}
+
+#content h1 {
+  text-shadow: 0 0 0.6em var(--rgbAlt);
+}
+
+#content h2,
+#content h3,
+#content h4,
+#content h5,
+#content h6,
+h2.postDate {
+  text-shadow: 0 0 0.6em var(--rgbAlt2);
 }
 
 #content h1.postTitle,
@@ -178,12 +240,12 @@ img {
 
 #content h1.postTitle {
   text-align: center;
-  color: var(--colorAlt);
+  color: var(--rgbAlt);
 }
 
 #content h2.postDate {
   text-align: right;
-  color: var(--colorAlt2);
+  color: var(--rgbAlt2);
   font-size: 1em;
   font-weight: normal;
   text-transform: lowercase;
@@ -194,15 +256,15 @@ img {
   height: 0.1em;
   background: linear-gradient(
     to right,
-    var(--colorBg) 0% 11%,
-    var(--colorLinks) 11% 22%,
-    var(--colorAlt) 22% 33%,
-    var(--colorAlt2) 33% 44%,
-    var(--colorLinkHover) 44% 55%,
-    var(--colorAlt2) 55% 66%,
-    var(--colorAlt) 66% 77%,
-    var(--colorLinks) 77% 88%,
-    var(--colorBg) 88% 100%
+    var(--rgbBg) 0% 11%,
+    var(--rgbLinks) 11% 22%,
+    var(--rgbAlt) 22% 33%,
+    var(--rgbAlt2) 33% 44%,
+    var(--rgbLinkHover) 44% 55%,
+    var(--rgbAlt2) 55% 66%,
+    var(--rgbAlt) 66% 77%,
+    var(--rgbLinks) 77% 88%,
+    var(--rgbBg) 88% 100%
   );
 }
 
@@ -286,7 +348,7 @@ tbody {
 }
 
 tbody tr:nth-child(even) {
-  background-color: var(--colorLinkHover);
+  background-color: var(--rgbLinkHover);
 }
 
 .rightAlign {
@@ -296,23 +358,105 @@ tbody tr:nth-child(even) {
 code,
 .highlighter-rouge,
 .highlighter-rouge .highlight {
-  background-color: var(--colorLinkHover);
+  background-color: var(--rgbLinkHover);
   border-radius: 0;
 }
 
 .highlight .s {
-  color: var(--colorAlt2);
+  color: var(--rgbAlt2);
 }
 
 .highlight .mi {
-  color: var(--colorAlt);
+  color: var(--rgbAlt);
 }
 .highlight .nv {
-  color: var(--colorLinks);
+  color: var(--rgbLinks);
 }
 
 @media (min-width: 800px) {
   section {
     padding: 5em;
   }
+}
+
+#sun {
+  overflow: hidden;
+}
+
+#sky {
+  overflow: visible;
+  grid-area: "sky";
+  width: 100%;
+  height: 100%;
+}
+
+#sunContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* This is stupid. So stupid. But it works. */
+#sunOverlay {
+  height: 200%;
+  width: 200%;
+  top: -37%;
+  left: -30%;
+}
+
+#sunOverlay,
+#sun {
+  overflow: hidden;
+  position: relative;
+}
+
+#sunOverlay {
+  background: radial-gradient(
+    var(--rgbAlt2),
+    var(--rgbAlt) 25%,
+    transparent 50%
+  );
+}
+
+#sun {
+  position: absolute;
+  bottom: -10%;
+  right: -20%;
+  background: var(--rgbAlt2);
+  background-image: linear-gradient(
+    to bottom,
+    var(--rgbAlt2),
+    var(--rgbAlt) 60%
+  );
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.sunbeam {
+  position: relative;
+  background-color: var(--rgbBg);
+  width: 100%;
+  box-shadow: 1px 1px 1px 1px var(--rgbBg);
+}
+
+.sunbeam-1 {
+  top: 55%;
+  height: 0.1em;
+}
+
+.sunbeam-2 {
+  top: 60%;
+  height: 0.2em;
+}
+
+.sunbeam-3 {
+  top: 65%;
+  height: 0.35em;
+}
+
+.sunbeam-4 {
+  top: 70%;
+  height: 0.4em;
 }
