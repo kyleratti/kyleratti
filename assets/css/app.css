@@ -93,8 +93,9 @@ nav a:visited {
 #navLinks > ul > li {
 }
 
-#content > section > p {
+section {
   max-width: 85ch;
+  margin: 0 auto;
 }
 
 #content a,
@@ -276,6 +277,7 @@ img {
   font-weight: bold;
   letter-spacing: 0.07em;
   text-transform: uppercase;
+  text-align: center;
 }
 
 #content h1 {
