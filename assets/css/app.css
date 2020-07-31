@@ -25,11 +25,39 @@ body {
     100vw - 100%
   ); /* From https://stackoverflow.com/a/30293718 */
   background-color: var(--rgbBg);
-  background: linear-gradient(to top, var(--rgbBg) 50%, #09000f 75%);
-  background-attachment: fixed;
-  /* background: linear-gradient(45deg, red, blue); */
   color: var(--rgbAlt2);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/*
+* This is a neat little hack for the background gradient. Essentially,
+* if you attach the gradient to the body tag, the browser will try to
+* re-render the entire page with the gradient as you scroll. This is
+* particularly bad/noticeable on mobile devices and results in horrible
+* FPS + screen "tearing". Instead, we apply the gradient to a dummy
+* element on the page, set it to fill the visible area, move it behind
+* the content of the page, and set the "will-change" property to ask
+* the browser to render this div separately.
+*
+* Source: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-will-change-property/
+* Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/will-change
+*/
+#background {
+  overflow: hidden;
+  position: relative;
+}
+
+#background::before {
+  content: " ";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to top, var(--rgbBg) 50%, #09000f 75%);
+  background-size: cover;
+  will-change: transform;
+  z-index: -1;
 }
 
 #page {
@@ -42,8 +70,8 @@ body {
 nav {
   display: grid;
   grid-template-areas: "nav sky";
-  grid-template-columns: auto 6em;
-  height: 6em;
+  grid-template-columns: auto 5em;
+  height: 5em;
 }
 
 nav a,
@@ -128,14 +156,17 @@ nav,
 
 nav,
 footer {
-  /* background-color: var(--colorAlt); */
+  background-color: var(--rgbAlt2);
   background-image: linear-gradient(
       176deg,
       rgba(var(--colorLinks), 0.5),
       rgba(var(--colorBg), 0.2) 80%
     ),
     linear-gradient(36deg, rgb(var(--colorAlt)), rgb(var(--colorAlt2)) 85%);
-  width: 100%;
+  width: 50%;
+  min-width: 350px;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
 #content,
@@ -152,6 +183,7 @@ nav h1 {
 nav ul {
   display: inline;
   list-style: none;
+  margin: 1em;
 }
 
 nav ul li {
@@ -427,7 +459,8 @@ code,
   background-image: linear-gradient(
     to bottom,
     var(--rgbAlt2),
-    var(--rgbAlt) 60%
+    var(--rgbAlt) 60%,
+    var(--rgbLinks) 85%
   );
   border-radius: 50%;
   width: 100%;
