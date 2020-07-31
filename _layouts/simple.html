@@ -1,3 +1,5 @@
+{% assign pageNameNoExtension = page.name | remove: ".html" | remove: ".md" | remove: ".markdown" %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,6 +15,12 @@
 
     <link rel="stylesheet" href="/assets/main.css" />
     <link rel="stylesheet" href="/assets/css/app.css" />
+
+    {% if page.assets.css %}
+      <link rel="stylesheet" href="/assets/pages/{{ pageNameNoExtension }}/page.css" />
+    {% endif %}
+
+    <script src="https://kit.fontawesome.com/d85d4d6f28.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div id="background"></div>
@@ -51,5 +59,9 @@
         </section>
       </div>
     </div>
+
+    {% if page.assets.js %}
+      <script src="/assets/pages/{{ pageNameNoExtension }}/page.js"></script>
+    {% endif %}
   </body>
 </html>
