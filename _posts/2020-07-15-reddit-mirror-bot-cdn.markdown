@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Reddit Mirror Bot: Serving 10+ TB of Video Bandwidth"
+title: "Serving 10+ TB of Video Bandwidth Per Month"
 date: 2020-07-15 21:48:36 -0400
 categories: programming
 tags:
