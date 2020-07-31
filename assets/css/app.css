@@ -69,7 +69,7 @@ body {
 
 nav {
   display: grid;
-  grid-template-areas: "nav sky";
+  grid-auto-flow: row;
   grid-template-columns: auto 5em;
   height: 5em;
 }
@@ -81,8 +81,20 @@ nav a:visited {
   color: var(--rgbLinkHover);
 }
 
-#navLinks {
-  grid-area: "nav";
+#navLinks > ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+
+#navLinks > ul > li {
+}
+
+#content > section > p {
+  max-width: 85ch;
 }
 
 #content a,
@@ -91,7 +103,7 @@ nav a:visited {
   text-decoration: none;
   color: var(--rgbLinks);
   font-weight: bold;
-  text-shadow: 1px 0 black;
+  text-shadow: -1px 2px black;
   background-image: linear-gradient(
     to top,
     var(--rgbAlt2) 50%,
@@ -119,6 +131,9 @@ ul {
   text-decoration: none;
   padding-left: 0.2em;
   font-size: 0.85em;
+  font-family: FontAwesome;
+  font-display: block;
+  width: 16px;
 }
 
 #content a[href^="https://"]:after
@@ -132,12 +147,28 @@ ul {
 
 #content a[href^="https://github.com/"]:after
 {
-  content: "GH";
+  content: "\f09b"; /* github */
 }
 
 #content a[href^="https://reddit.com/r/"]:after
 {
   content: "REDDIT";
+}
+
+#content a[href="/programming"]:after {
+  content: "\f5fc"; /* laptop-code */
+}
+
+#content a[href="/cars"]:after {
+  content: "\f1b9"; /* car */
+}
+
+#content a[href="/photography"]:after {
+  content: "\f008"; /* film */
+}
+
+#content a[href="/tucker"]:after {
+  content: "\f1b0"; /* paw */
 }
 
 #content a small:before {
@@ -149,7 +180,6 @@ ul {
   font-size: 0.7em;
 }
 
-nav,
 #content {
   margin-bottom: 0.25em;
 }
@@ -166,7 +196,7 @@ footer {
   width: 50%;
   min-width: 350px;
   max-width: 1300px;
-  margin: 0 auto;
+  margin: 0.25em auto;
 }
 
 #content,
@@ -181,9 +211,7 @@ nav h1 {
 }
 
 nav ul {
-  display: inline;
   list-style: none;
-  margin: 1em;
 }
 
 nav ul li {
@@ -191,24 +219,22 @@ nav ul li {
   font-weight: bold;
   font-size: 1.5em;
   text-transform: uppercase;
-  text-shadow: 1px 1px var(--rgbBg);
+  text-shadow: -2px -1px var(--rgbBg);
+  text-shadow: 0 0 1em var(--rgbAlt2);
 }
 
 nav ul li:hover {
-  text-shadow: 2px 2px var(--rgbAlt2);
-}
-
-nav ul li:not(:first-child) {
-  margin-left: 0.5em;
+  text-shadow: -2px -1px var(--rgbAlt2);
 }
 
 #siteIcon {
   background-color: transparent;
   display: inline-block;
-  border: 2px solid black;
-  background-image: url(/assets/img/me_small.jpg);
-  width: 120px;
-  height: 120px;
+  /* border: 2px solid black; */
+  background-image: url(/assets/img/me.jpg);
+  background-size: contain;
+  width: calc(460px / 2.5);
+  height: calc(460px / 2.5);
   /* clip-path: circle(50px at center); */
 }
 
@@ -216,6 +242,7 @@ nav ul li:not(:first-child) {
   color: white;
 }
 
+#siteIcon,
 .boxShadow,
 .highlight,
 nav,
@@ -417,7 +444,7 @@ code,
 
 #sky {
   overflow: visible;
-  grid-area: "sky";
+  /* grid-area: sky; */
   width: 100%;
   height: 100%;
 }
