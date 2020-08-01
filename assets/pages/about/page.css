@@ -1,3 +1,188 @@
+:root {
+  --flagHeight: 40px;
+}
+
 #content > section {
   margin-top: 2em;
+  max-width: 100ch;
+  padding: 0;
+}
+
+#intro {
+  grid-template-areas:
+    "profilePic info"
+    "stats stats";
+  gap: 0.5em;
+}
+
+#intro picture,
+#intro img {
+  width: 120px;
+  height: 120px;
+}
+
+#info h1 {
+  font-size: 2.5em;
+}
+
+#intro {
+  display: grid;
+  align-items: center;
+}
+
+#intro picture,
+#intro img {
+  display: inline-block;
+}
+
+#profile {
+  grid-area: profilePic;
+}
+
+#info {
+  grid-area: info;
+  text-align: center;
+}
+
+#info h1 {
+  display: inline-block;
+  margin: 0;
+}
+
+#stats {
+  grid-area: stats;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+#stats > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-grow: 1;
+  width: 35%;
+  margin: 0.5em;
+}
+
+#stats > div .icon {
+  min-width: var(--flagHeight);
+  min-height: var(--flagHeight);
+  text-align: center;
+  /* border: 1px solid red; */
+}
+
+#stats .description {
+  font-weight: bold;
+}
+
+.icon,
+#mdFlag {
+  width: var(--flagHeight);
+  height: var(--flagHeight);
+  font-size: calc(var(--flagHeight) * 0.8);
+  margin: 0 auto;
+  font-display: block;
+}
+
+#mdNative .icon {
+  width: calc(var(--flagHeight) * 1.5);
+}
+
+#mdNative .icon #mdFlag {
+  background-image: url(/assets/img/md_flag_40h.jpg);
+  background-image: url(/assets/img/md_flag.svg);
+  background-size: cover;
+  width: 100%;
+}
+
+#stats ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#stats ul,
+#stats ul li {
+  margin: 0;
+  padding: 0;
+}
+
+#stats ul li {
+  display: inline-block;
+  font-weight: bold;
+}
+
+#meat {
+  max-width: 85ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+p.naturalList {
+  margin-bottom: 0;
+}
+
+ul.naturalList {
+  margin-left: 2em;
+}
+
+/* Layout scale: > 400px */
+
+@media (min-width: 400px) {
+  #intro {
+    grid-template-areas:
+      "profilePic info"
+      "profilePic stats";
+  }
+
+  #intro picture,
+  #intro img {
+    width: 240px;
+    height: 240px;
+  }
+
+  #info h1 {
+    font-size: 5.5em;
+  }
+
+  #stats > div {
+    width: unset;
+    margin: 0;
+  }
+
+  #meat {
+    margin-top: 1em;
+  }
+
+  #languages,
+  ul.naturalList {
+    display: inline;
+  }
+
+  ul.naturalList {
+    list-style: none;
+    margin: 0;
+  }
+
+  ul.naturalList li {
+    display: inline-block;
+  }
+
+  ul.naturalList li:not(:last-child):after {
+    content: ",";
+    float: right;
+  }
+
+  ul.naturalList li:last-child:before {
+    content: "and ";
+  }
+
+  ul.naturalList.closer li:last-child:after {
+    content: ".";
+    float: right;
+  }
 }

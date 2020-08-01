@@ -78,7 +78,7 @@ nav a,
 nav a:hover,
 nav a:visited {
   text-decoration: none;
-  color: var(--rgbLinkHover);
+  color: var(--rgbBg);
 }
 
 #navLinks > ul {
@@ -86,11 +86,8 @@ nav a:visited {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: end;
   height: 100%;
-}
-
-#navLinks > ul > li {
 }
 
 section {
@@ -112,15 +109,30 @@ section {
   );
   padding: 0.025em 0.2em;
   border-bottom: 2px solid var(--rgbAlt2);
-  transition: background-position 0.2s, color 0.15s, text-shadow 0.15s;
   background-size: 100% 200%;
   white-space: nowrap;
 }
 
-#content a:hover {
+#content a,
+#content a:after,
+#content a:hover,
+#content a:visited {
+  transition: background-position 0.2s, color 0.15s, text-shadow 0.15s;
+}
+
+#content a:hover,
+#content a:hover:after {
   color: var(--rgbBg);
   background-position: 0 100%;
   text-shadow: none;
+}
+
+#content a:focus {
+  border: 2px solid var(--rgbLinks);
+}
+
+nav ul li a:focus {
+  border: 2px solid var(--rgbBg);
 }
 
 ul {
@@ -143,7 +155,7 @@ ul {
 }
 
 #content a[href^="mailto:"]:after {
-  content: "📧";
+  content: "\f658"; /* envelope-open-text */
 }
 
 #content a[href^="https://github.com/"]:after
@@ -153,7 +165,19 @@ ul {
 
 #content a[href^="https://reddit.com/r/"]:after
 {
-  content: "REDDIT";
+  content: "\f281"; /* reddit-alien */
+}
+
+#content a[href^="https://digitalocean.com/"]:after,
+#content a[href^="https://www.digitalocean.com/"]:after
+{
+  content: "\f391"; /* digitalocean */
+}
+
+#content a[href^="https://stackoverflow.com/"]:after,
+#content a[href^="https://serverfault.com/"]:after
+{
+  content: "\f16c"; /* stackoverflow */
 }
 
 #content a[href="/programming"]:after {
@@ -194,7 +218,7 @@ footer {
       rgba(var(--colorBg), 0.2) 80%
     ),
     linear-gradient(36deg, rgb(var(--colorAlt)), rgb(var(--colorAlt2)) 85%);
-  width: 50%;
+  width: 65%;
   min-width: 350px;
   max-width: 1300px;
   margin: 0.25em auto;
@@ -221,11 +245,12 @@ nav ul li {
   font-size: 1.5em;
   text-transform: uppercase;
   text-shadow: -2px -1px var(--rgbBg);
-  text-shadow: 0 0 1em var(--rgbAlt2);
+  text-shadow: 0 0 2em var(--rgbAlt2);
 }
 
 nav ul li:hover {
   text-shadow: -2px -1px var(--rgbAlt2);
+  text-shadow: 0 0 1em var(--rgbBg);
 }
 
 #siteIcon {
@@ -434,9 +459,27 @@ code,
   color: var(--rgbLinks);
 }
 
+.wideOnly {
+  display: none;
+}
+
+.smallOnly {
+  display: unset;
+}
+
 @media (min-width: 800px) {
   section {
     padding: 5em;
+  }
+}
+
+@media (min-width: 400px) {
+  .wideOnly {
+    display: unset;
+  }
+
+  .smallOnly {
+    display: none;
   }
 }
 
