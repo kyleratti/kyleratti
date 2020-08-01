@@ -130,9 +130,9 @@ ul.naturalList {
   margin-left: 2em;
 }
 
-/* Layout scale: > 400px */
+/* Layout scale: > 800px */
 
-@media (min-width: 400px) {
+@media (min-width: 800px) {
   #intro {
     grid-template-areas:
       "profilePic info"

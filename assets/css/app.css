@@ -473,7 +473,7 @@ code,
   }
 }
 
-@media (min-width: 400px) {
+@media (min-width: 800px) {
   .wideOnly {
     display: unset;
   }
