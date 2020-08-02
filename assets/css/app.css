@@ -91,8 +91,18 @@ nav a:visited {
 }
 
 section {
-  max-width: 85ch;
   margin: 0 auto;
+}
+
+section > p,
+section > blockquote {
+  max-width: 75ch;
+  margin-left: auto;
+  margin-right: auto;
+  letter-spacing: 0.025em;
+  word-spacing: 0.15em;
+  /* text-align: justify;
+  text-justify: inter-word; */
 }
 
 #content a,
@@ -311,6 +321,15 @@ img {
 
 #content h1 {
   text-shadow: 0 0 0.6em var(--rgbAlt);
+  font-size: 1.5em;
+}
+
+#content h2 {
+  font-size: 1.35em;
+}
+
+#content h3 {
+  font-size: 1.2em;
 }
 
 #content h2,
@@ -334,9 +353,9 @@ h2.postDate {
 }
 
 #content h2.postDate {
-  text-align: right;
+  /* text-align: right; */
   color: var(--rgbAlt2);
-  font-size: 1em;
+  font-size: 0.75em;
   font-weight: normal;
   text-transform: lowercase;
 }
