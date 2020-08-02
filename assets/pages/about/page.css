@@ -32,7 +32,7 @@
 
 #intro {
   display: grid;
-  align-items: start;
+  align-items: center;
 }
 
 #intro picture,
@@ -130,8 +130,14 @@
   margin-right: auto;
 }
 
+p::not(:first)::before {
+  display: block;
+  content: "";
+  /* margin: 1em; */
+}
+
 p.naturalList {
-  margin-bottom: 0;
+  display: inline;
 }
 
 ul.naturalList {
@@ -154,7 +160,8 @@ ul.naturalList {
   }
 
   #info h1 {
-    font-size: 5.5em;
+    font-size: 3.5em;
+    text-align: center;
   }
 
   #stats > div {
@@ -164,6 +171,7 @@ ul.naturalList {
 
   #meat {
     margin-top: 1em;
+    max-width: 65ch;
   }
 
   #languages,
