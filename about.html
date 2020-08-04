@@ -15,23 +15,34 @@ assets:
     <picture id="profile">
       <source
         type="image/webp"
-        media="(max-width: 1080px)"
+        media="(max-width: 600px)"
         srcset="/assets/img/me_small.webp"
       />
       <source
         type="image/jpeg"
-        media="(max-width: 1080px)"
+        media="(max-width: 600px)"
         srcset="/assets/img/me_small.jpg"
       />
 
       <source
         type="image/webp"
-        media="(min-width: 1080px)"
+        media="(min-width: 600px)"
+        srcset="/assets/img/me_180.webp"
+      />
+      <source
+        type="image/jpeg"
+        media="(min-width: 600px)"
+        srcset="/assets/img/me_180.jpg"
+      />
+
+      <source
+        type="image/webp"
+        media="(min-width: 900px)"
         srcset="/assets/img/me_medium.webp"
       />
       <source
         type="image/jpeg"
-        media="(min-width: 1080px)"
+        media="(min-width: 900px)"
         srcset="/assets/img/me_medium.jpg"
       />
 
@@ -43,15 +54,23 @@ assets:
     </div>
 
     <div id="stats">
-      <div id="codeSlinger">
+      <div class="badge" id="codeSlinger">
         <div class="icon"><i class="fas fa-laptop-code"></i></div>
         <div class="description">Code Slinger</div>
       </div>
-      <div id="carLover">
+      <div class="badge" id="carEnthusiast">
         <div class="icon"><i class="fas fa-car"></i></div>
-        <div class="description">Car Lover</div>
+        <div class="description">Car Enthusiast</div>
       </div>
-      <div id="mdNative">
+      <div class="badge" id="pictureTaker">
+        <div class="icon"><i class="fas fa-film"></i></div>
+        <div class="description">Picture Taker</div>
+      </div>
+      <div class="badge" id="dogLover">
+        <div class="icon"><i class="fas fa-dog"></i></div>
+        <div class="description">Dog Lover</div>
+      </div>
+      <div class="badge" id="mdNative">
         <div class="icon"><div id="mdFlag"></div></div>
         <div class="description">Maryland Native</div>
       </div>
@@ -60,12 +79,9 @@ assets:
 </div>
 
 <div id="meat">
-  <h1 class="wideOnly">Hi!</h1>
-
   <p id="languages" class="naturalList">
-    <span class="smallOnly">Hey! </span>I'm Kyle, an entirely self-taught
-    software developer with experience in several languages, including<span
-      class="smallOnly"
+    <span class="glow">Hey! I'm Kyle,</span> a self-taught software developer
+    with experience in a multitude languages, including<span class="smallOnly"
       >:</span
     >
   </p>
@@ -120,24 +136,18 @@ assets:
   <p>
     Outside of <a href="/programming">programming</a>, I love
     <a href="/cars">cars</a>, coffee, <a href="/photography">photography</a>,
-    and my cute-as-a-button dog,
-    <a href="/tucker">Tucker</a>
+    and my cute-as-a-button dog, <a href="/tucker">Tucker</a>.
   </p>
 
-  <h3>Why I Code</h3>
+  <h2>Why I Code</h2>
 
   <p>
-    When I was 12, a series of seemingly insignificant events led to a chance
-    meeting that forever changed my life: I went to a summer camp where we
-    played a Star Wars video game during down time, I obtained a
-    <small>borderline</small> unhealthy obsession with the game, and started
-    playing on random multiplayer servers outside of camp.
+    When I was 12, a seemingly insignificant event that forever changed my life:
+    <b>I went to a summer camp and played a Star Wars video game.</b>
   </p>
 
   <p>
-    Immediately, I noticed some servers in the game had their own modifications
-    to the world and gameplay and had to know more about it. I ended up
-    communicating with a modification developer named
+    This led to a chance meeting with a game modification developer named
     <a href="https://github.com/robophred" target="_blank">@RoboPhred</a> who
     took the time to teach me how to program my own modifications. He has since
     become a life-long friend and mentor!
@@ -159,7 +169,7 @@ assets:
     </a>
     and
     <a href="https://github.com/kyleratti/tscw-daemon" target="_blank">
-      web-based file relay servers</a
+      HTTP file relay servers</a
     >
     for my sister's work, I think it's the coolest thing in the world to
     <b>be able to build something,</b> <b>watch it come to life,</b> and

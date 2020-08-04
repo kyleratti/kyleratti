@@ -1,0 +1,15 @@
+nav ul li {
+  font-size: 1.6em;
+}
+
+.smallOnly {
+  display: none;
+}
+
+.mediumAndLarge {
+  display: block;
+}
+
+section {
+  padding: 5em;
+}

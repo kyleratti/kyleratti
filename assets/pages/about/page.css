@@ -1,14 +1,16 @@
 :root {
-  --flagHeight: 40px;
+  --flagHeight: 32px;
+  --profileHeight: 120px;
 }
 
 #content > section {
-  margin-top: 2em;
+  margin-top: 0.5em;
   padding: 0;
 }
 
 #aboutMe {
-  max-width: 85%;
+  width: 85%;
+  max-width: 450px;
   margin: 0 auto;
 }
 
@@ -22,8 +24,8 @@
 
 #intro picture,
 #intro img {
-  width: 120px;
-  height: 120px;
+  width: var(--profileHeight);
+  height: var(--profileHeight);
 }
 
 #info h1 {
@@ -50,9 +52,13 @@
   text-align: center;
 }
 
-#info h1 {
+h1 {
   display: inline-block;
   margin: 0;
+}
+
+#meat h1 {
+  text-transform: none;
 }
 
 #stats {
@@ -65,7 +71,7 @@
   align-items: center;
 }
 
-#stats > div {
+.badge {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -75,9 +81,9 @@
   text-align: center;
 }
 
-#stats > div .icon {
-  min-width: var(--flagHeight);
-  min-height: var(--flagHeight);
+.icon {
+  /* min-width: var(--flagHeight); */
+  /* min-height: var(--flagHeight); */
   text-align: center;
   /* border: 1px solid red; */
 }
@@ -100,7 +106,7 @@
 }
 
 #mdNative .icon #mdFlag {
-  background-image: url(/assets/img/md_flag_40h.jpg);
+  background-image: url(/assets/img/md_flag_32h.jpg);
   background-image: url(/assets/img/md_flag.svg);
   background-size: cover;
   width: 100%;
@@ -125,7 +131,8 @@
 }
 
 #meat {
-  max-width: 35ch;
+  width: 85%;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -143,20 +150,47 @@ p.naturalList {
 ul.naturalList {
   margin-left: 2em;
 }
+.badge {
+  padding: 0.25em;
+}
 
-/* Layout scale: > 1080px */
+/** BEGIN: Medium layout */
+@media screen and (min-width: 600px) {
+  #aboutMe {
+    max-width: 550px;
+  }
 
-@media (min-width: 1080px) {
   #intro {
     grid-template-areas:
       "profilePic info"
       "profilePic stats";
   }
 
-  #intro picture,
-  #intro img {
-    width: 240px;
-    height: 240px;
+  :root {
+    --flagHeight: 24px;
+    --profileHeight: 180px;
+  }
+
+  .badge {
+    width: 33%;
+  }
+
+  #meat {
+    margin-top: 1em;
+    max-width: 65ch;
+  }
+}
+
+/** END: Medium layout */
+
+/** BEGIN: Large layout */
+@media screen and (min-width: 900px) {
+  :root {
+    --profileheight: 240px;
+  }
+
+  #aboutMe {
+    max-width: 650px;
   }
 
   #info h1 {
@@ -164,14 +198,8 @@ ul.naturalList {
     text-align: center;
   }
 
-  #stats > div {
-    width: unset;
-    margin: 0;
-  }
-
-  #meat {
-    margin-top: 1em;
-    max-width: 65ch;
+  .badge {
+    width: 33%;
   }
 
   #languages,
@@ -202,3 +230,4 @@ ul.naturalList {
     float: right;
   }
 }
+/** END: Large layout */

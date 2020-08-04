@@ -7,6 +7,7 @@ tags:
   - tuckbot
   - a-mirror-bot
   - nginx
+hasSolution: true
 ---
 
 The more technical people I speak to about my Reddit Mirror Bot project, [Tuckbot](https://github.com/kyleratti/tuckbot-downloader), the more interest there is in the logistics on serving a relatively large amount of video traffic for a hobby project.
@@ -99,7 +100,7 @@ And really, I should've seen it coming: you can't reasonably expect CloudFlare, 
 
 Yep. Fair.
 
-## Building a Simple CDN Infrastructure
+<h2 id="solution">Building a Simple CDN Infrastructure</h2>
 
 Having received no notification or explanation as to why CloudFlare was no longer caching or proxying **tuckbot.tv**, but knowing exactly why CloudFlare was no longer caching or proxying **tuckbot.tv**, I was scrambing to build a mini "CDN" that could handle a peak of 400 users/minute. Sticking with what I know, I decided to use three **NGINX** servers in a reverse proxy configuration in front of my application server with heavy caching:
 

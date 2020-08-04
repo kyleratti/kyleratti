@@ -15,6 +15,8 @@
 
     <link rel="stylesheet" href="/assets/main.css" />
     <link rel="stylesheet" href="/assets/css/app.css" />
+    <link rel="stylesheet" media="screen and (min-width: 600px)" href="/assets/css/app-600.css" />
+    <link rel="stylesheet" media="screen and (min-width: 900px)" href="/assets/css/app-900.css" />
 
     {% if page.assets.css %}
       <link rel="stylesheet" href="/assets/pages/{{ pageNameNoExtension }}/page.css" />
@@ -52,6 +54,10 @@
           <h2 class="postDate" title="{{ page.date | date: "%A, %B %e, %Y" }}">{{ page.date | date: "shared %Y-%m-%d" }}</h2>
 
           <hr />
+
+          {% if page.hasSolution %}
+            <a href="#solution">(skip to solution)</a>
+          {% endif %}
         {% endif %}
 
         <section>
