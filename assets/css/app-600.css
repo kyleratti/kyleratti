@@ -6,8 +6,16 @@ nav ul li {
   display: none;
 }
 
+.mediumOnly {
+  display: block;
+}
+
 .mediumAndLarge {
   display: block;
+}
+
+.mediumAndLarge-inline {
+  display: inline;
 }
 
 section {

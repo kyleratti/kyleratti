@@ -4,6 +4,12 @@
   padding: 0;
 }
 
+/** BEGIN: Color template */
+/**
+  * NOTE: While this looks weird, it is valid CSS. We define the
+  * colors this way so that we can feed them into the rgb() function
+  * below and use them with the rgba() function throughout this file.
+ */
 :root {
   --colorBg: 54, 2, 89;
   --colorAlt: 242, 68, 5;
@@ -19,7 +25,21 @@
   --rgbLinks: rgb(var(--colorLinks));
   --rgbLinkHover: rgb(var(--colorLinkHover));
 }
+/** END: Color template */
 
+/** BEGIN: Template variables */
+:root {
+  --marginLarge: 1em;
+  --marginMedium: 0.75em;
+  --marginSmall: 0.5em;
+
+  --paddingLarge: 1em;
+  --paddingMedium: 0.75em;
+  --paddingSmall: 0.5em;
+}
+/** END: Template variables */
+
+/** BEGIN: Style resets */
 body {
   padding-left: calc(
     100vw - 100%
@@ -27,7 +47,15 @@ body {
   background-color: var(--rgbBg);
   color: var(--rgbAlt2);
   font-family: Arial, Helvetica, sans-serif;
+  line-height: 150%;
 }
+
+ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+/** END: Style resets */
 
 /*
 * This is a neat little hack for the background gradient. Essentially,
@@ -50,8 +78,8 @@ body {
 #background::before {
   content: " ";
   position: fixed;
-  width: 100%;
-  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
   top: 0;
   left: 0;
   background: linear-gradient(to top, var(--rgbBg) 50%, #09000f 75%);
@@ -72,6 +100,7 @@ nav {
   grid-auto-flow: row;
   grid-template-columns: auto 5em;
   height: 5em;
+  line-height: initial;
 }
 
 nav a,
@@ -94,13 +123,14 @@ section {
   margin: 0 auto;
 }
 
+/** FIXME: REMOVE */
 section > p,
 section > blockquote {
-  max-width: 75ch;
+  /* max-width: 75ch;
   margin-left: auto;
   margin-right: auto;
   letter-spacing: 0.025em;
-  word-spacing: 0.15em;
+  word-spacing: 0.15em; */
   /* text-align: justify;
   text-justify: inter-word; */
 }
@@ -117,7 +147,7 @@ section > blockquote {
     var(--rgbAlt2) 50%,
     var(--rgbLinkHover) 50%
   );
-  padding: 0.025em 0.2em;
+  padding: 0.05em 0.2em;
   border-bottom: 2px solid var(--rgbAlt2);
   background-size: 100% 200%;
   white-space: nowrap;
@@ -141,6 +171,11 @@ section > blockquote {
   border-color: var(--rgbLinks);
 }
 
+/** BEGIN: Nav outline hack */
+/**
+  * This may look a little weird, but it keeps the layout from shifting
+  * when a border is added onto anchor tags.
+*/
 nav ul li a {
   border: 2px solid transparent;
 }
@@ -148,10 +183,7 @@ nav ul li a {
 nav ul li a:focus {
   border-color: var(--rgbBg);
 }
-
-ul {
-  margin-left: 0;
-}
+/** END: Nav outline hack */
 
 #content a:after {
   display: inline-block;
@@ -163,6 +195,7 @@ ul {
   width: 16px;
 }
 
+/** BEGIN: Anchor tag icons */
 #content a[href^="https://"]:after
 {
   content: "🌎";
@@ -210,21 +243,18 @@ ul {
   content: "\f1b0"; /* paw */
 }
 
-#content a small:before {
+/** END: Anchor tag icons */
+
+a.postLink small:before {
   content: "shared ";
 }
 
-#content a small {
+a.postLink small {
   font-weight: normal;
   font-size: 0.7em;
 }
 
-#content {
-  margin-bottom: 0.25em;
-}
-
-nav,
-footer {
+nav {
   background-color: var(--rgbAlt2);
   background-image: linear-gradient(
       176deg,
@@ -232,25 +262,10 @@ footer {
       rgba(var(--colorBg), 0.2) 80%
     ),
     linear-gradient(36deg, rgb(var(--colorAlt)), rgb(var(--colorAlt2)) 85%);
-  width: 65%;
+  width: 90%;
   min-width: 350px;
   max-width: 1300px;
-  margin: 0.25em auto;
-}
-
-#content,
-footer {
-  padding: 0.5em;
-}
-
-nav h1 {
-  display: inline-block;
-  color: white;
-  margin-right: 1em;
-}
-
-nav ul {
-  list-style: none;
+  margin: var(--marginSmall) auto;
 }
 
 nav ul li {
@@ -265,41 +280,16 @@ nav ul li:hover {
   text-shadow: 0 0 1em var(--rgbBg);
 }
 
-#siteIcon {
-  background-color: transparent;
-  display: inline-block;
-  /* border: 2px solid black; */
-  background-image: url(/assets/img/me.jpg);
-  background-size: contain;
-  width: calc(460px / 2.5);
-  height: calc(460px / 2.5);
-  /* clip-path: circle(50px at center); */
-}
-
 #content {
+  padding: var(--paddingMedium);
   color: white;
 }
 
-#siteIcon,
 .boxShadow,
 .highlight,
 nav,
 table,
 img {
-  box-shadow: 1px 1px var(--rgbAlt2), 2px 2px var(--rgbAlt2),
-    3px 3px
-      linear-gradient(
-        to right,
-        var(--rgbBg) 11%,
-        var(--rgbLinks) 11% 22%,
-        var(--rgbAlt) 22% 33%,
-        var(--rgbAlt2) 33% 44%,
-        var(--rgbLinkHover) 44% 55%,
-        var(--rgbAlt2) 55% 66%,
-        var(--rgbAlt) 66% 77%,
-        var(--rgbLinks) 77% 88%,
-        var(--rgbBg) 88% 100%
-      );
   box-shadow: 1px 1px var(--rgbAlt2), 2px 2px var(--rgbAlt2),
     3px 3px var(--rgbAlt2), 4px 4px var(--rgbLinks), 5px 5px var(--rgbLinks);
 }
@@ -323,7 +313,7 @@ img {
 }
 
 #content h1 {
-  font-size: 1.5em;
+  font-size: 1.45em;
 }
 
 #content h2 {
@@ -499,7 +489,6 @@ code,
 
 #sky {
   overflow: visible;
-  /* grid-area: sky; */
   width: 100%;
   height: 100%;
 }

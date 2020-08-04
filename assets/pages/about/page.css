@@ -1,10 +1,11 @@
 :root {
   --flagHeight: 32px;
   --profileHeight: 120px;
+  --nameSize: 2.2em;
 }
 
 #content > section {
-  margin-top: 0.5em;
+  /* margin-top: 0.5em; */
   padding: 0;
 }
 
@@ -17,9 +18,11 @@
 #intro {
   grid-template-areas:
     "profilePic"
-    "info"
+    "name"
+    "contact"
     "stats";
   gap: 0.5em;
+  grid-template-rows: calc(var(--profileHeight) + 10px) 1fr 1fr 3fr;
 }
 
 #intro picture,
@@ -28,8 +31,37 @@
   height: var(--profileHeight);
 }
 
-#info h1 {
-  font-size: 2.2em;
+#name {
+  grid-area: name;
+  text-align: center;
+}
+
+#name h1 {
+  font-size: var(--nameSize);
+}
+
+#contact {
+  grid-area: contact;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+  margin: var(--marginSmall);
+}
+
+#content #contact a {
+  margin-right: 0.5em;
+}
+
+#content #contact a::after {
+  display: none;
+}
+
+#contact > div {
+  display: inline-block;
+  /* width: 100%; */
+  text-align: center;
+  font-size: 1em;
 }
 
 #intro {
@@ -47,11 +79,6 @@
   margin: 0 auto;
 }
 
-#info {
-  grid-area: info;
-  text-align: center;
-}
-
 h1 {
   display: inline-block;
   margin: 0;
@@ -67,8 +94,9 @@ h1 {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  font-size: 0.8em;
+  font-size: 0.7em;
   align-items: center;
+  /* line-height: normal; */
 }
 
 .badge {
@@ -113,7 +141,6 @@ h1 {
 }
 
 #stats ul {
-  list-style: none;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -150,29 +177,41 @@ p.naturalList {
 ul.naturalList {
   margin-left: 2em;
 }
+
+ul {
+  list-style: outside;
+}
 .badge {
-  padding: 0.25em;
+  padding: var(--paddingSmall);
 }
 
 /** BEGIN: Medium layout */
 @media screen and (min-width: 600px) {
+  :root {
+    --flagHeight: 24px;
+    --nameSize: 3em;
+  }
+
   #aboutMe {
     max-width: 550px;
   }
 
   #intro {
     grid-template-areas:
-      "profilePic info"
-      "profilePic stats";
+      "profilePic name"
+      "profilePic name"
+      "profilePic contact"
+      "stats stats";
+    grid-template-rows: 2fr 3fr auto auto;
+    grid-template-columns: var(--profileHeight) auto;
   }
 
-  :root {
-    --flagHeight: 24px;
-    --profileHeight: 180px;
+  .icon {
+    font-size: 2em;
   }
 
   .badge {
-    width: 33%;
+    /* width: 50%; */
   }
 
   #meat {
@@ -186,20 +225,20 @@ ul.naturalList {
 /** BEGIN: Large layout */
 @media screen and (min-width: 900px) {
   :root {
-    --profileheight: 240px;
+    --profileHeight: 180px;
+    --nameSize: 2.7em;
   }
 
   #aboutMe {
     max-width: 650px;
   }
 
-  #info h1 {
-    font-size: 3.5em;
+  #name h1 {
     text-align: center;
   }
 
   .badge {
-    width: 33%;
+    /* width: 50%; */
   }
 
   #languages,

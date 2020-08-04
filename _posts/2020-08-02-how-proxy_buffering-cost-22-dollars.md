@@ -13,7 +13,7 @@ tags:
 
 Last month I wrote about [caching video files in NGINX](/programming/2020/07/15/reddit-mirror-bot-cdn.html) to reduce the amount of bandwidth being served through my primary host, [DigitalOcean](https://digitalocean.com/).
 
-Since writing that article, I've paid almost **\$22 in overages** (or **73% of monthly operating costs**) **in 72 hours** as a result of a misconfiguration of the NGINX CDN servers. Ironic, right?
+Since writing that article, I've paid almost **\$22 in overages** (or 73% of monthly operating costs) **in 72 hours** as a result of a misconfiguration of the NGINX CDN servers. Ironic, right?
 
 ## How It Happened
 
