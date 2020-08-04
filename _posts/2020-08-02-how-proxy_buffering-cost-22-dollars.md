@@ -69,7 +69,7 @@ It's important to trust that the issue is as described, or that your solution so
 
 ### Test, Test, Test!
 
-I'm not sure why testing is such a drag for developers and engineers, but it causes enough pain that there's plenty of memes about it. Maybe it's the thought that if we just spent time analyzing the problem and creating a solution, why would it be wrong? How?! _Don't you know I'm a coding God?!_
+I'm not sure why testing is such a drag for developers and engineers, but it causes enough pain that there's plenty of memes about it. Maybe it's the thought that if we just spent time analyzing the problem and creating a solution, why would it be wrong? How?! <span class="glow">_Don't you know I'm a coding God?!_</span>
 
 Test, test, test, and really, test again! If your issue is repeatable and can be verified, **so can your solution!** And frankly, it would've taken one command to verify `proxy_buffering off` breaks the caching setup.
 
