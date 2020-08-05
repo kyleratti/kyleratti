@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css?family=Saira:700");
+/* @import url("https://fonts.googleapis.com/css?family=Courgette&display=swap"); */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,6 +19,8 @@
   --colorAlt2: 242, 159, 5;
   --colorLinks: 238, 5, 242;
   --colorLinkHover: 39, 54, 140;
+
+  --colorGray: 49, 49, 49;
 }
 
 :root {
@@ -24,6 +29,8 @@
   --rgbAlt2: rgb(var(--colorAlt2));
   --rgbLinks: rgb(var(--colorLinks));
   --rgbLinkHover: rgb(var(--colorLinkHover));
+
+  --rgbGray: rgb(var(--colorGray));
 }
 /** END: Color template */
 
@@ -91,6 +98,33 @@ ul {
   background: linear-gradient(to top, var(--rgbBg) 50%, #09000f 75%);
   background-size: cover;
   will-change: transform;
+  z-index: -2;
+}
+
+#grid {
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0px,
+      var(--rgbLinks) 0%,
+      var(--rgbLinks) 3px,
+      rgba(0, 0, 0, 0) 0px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0) 0px,
+      var(--rgbLinks) 0%,
+      var(--rgbLinks) 3px,
+      rgba(0, 0, 0, 0) 0px
+    );
+  background-size: 4em 2em, 4em 2em;
+  background-color: transparent;
+  height: 40em;
+  perspective: 1000px;
+  margin-top: 20em;
+  transform: perspective(200px) rotateX(45deg) scale(2);
   z-index: -1;
 }
 
@@ -291,13 +325,32 @@ nav ul li:hover {
   color: white;
 }
 
+#sectionFill {
+  position: relative;
+  top: 0;
+  left: 0;
+  background: linear-gradient(0, rgba(var(--colorBg), 1) 0, transparent 40%);
+  background-attachment: fixed;
+}
+
 .boxShadow,
 .highlight,
 nav,
 table,
 img {
-  box-shadow: 1px 1px var(--rgbAlt2), 2px 2px var(--rgbAlt2),
-    3px 3px var(--rgbAlt2), 4px 4px var(--rgbLinks), 5px 5px var(--rgbLinks);
+  box-shadow: 1px 1px 0.5em var(--rgbAlt2), 2px 2px 0.5em var(--rgbAlt2),
+    3px 3px 0.5em var(--rgbAlt2), 4px 4px 0.5em var(--rgbLinks),
+    5px 5px 0.5em var(--rgbLinks);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+nav ul li {
+  font-family: "Saira", sans-serif;
 }
 
 #content h1,
@@ -362,19 +415,9 @@ h2.postDate,
 
 #content hr {
   border: 0;
-  height: 0.1em;
-  background: linear-gradient(
-    to right,
-    var(--rgbBg) 0% 11%,
-    var(--rgbLinks) 11% 22%,
-    var(--rgbAlt) 22% 33%,
-    var(--rgbAlt2) 33% 44%,
-    var(--rgbLinkHover) 44% 55%,
-    var(--rgbAlt2) 55% 66%,
-    var(--rgbAlt) 66% 77%,
-    var(--rgbLinks) 77% 88%,
-    var(--rgbBg) 88% 100%
-  );
+  height: 0.15em;
+  background: var(--rgbLinks);
+  box-shadow: 0 0em 0.5em 2px var(--rgbLinks), 0 0.1em 1em 2px var(--rgbLinks);
 }
 
 .postListing a:before {
@@ -403,6 +446,10 @@ hr {
   margin: 0.75em 0;
 }
 
+.skipToSolution {
+  font-size: 0.7em;
+}
+
 .postsList {
   list-style: none;
 }
@@ -419,6 +466,14 @@ hr {
 section {
   padding: 1em;
   padding-top: 0;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 3px,
+    inset rgba(0, 0, 0, 0.2) 0px -1px 2px;
+  background: linear-gradient(
+    to top,
+    rgba(var(--colorBg), 1) 0,
+    transparent 40%
+  );
+  background-attachment: fixed;
 }
 
 section:first-of-type {
@@ -458,7 +513,12 @@ tbody {
 }
 
 tbody tr:nth-child(even) {
-  background-color: var(--rgbLinkHover);
+  background-color: rgba(var(--colorLinks), 0.3);
+}
+
+tbody tr:hover {
+  background-color: rgba(var(--colorLinks), 0.6);
+  font-weight: bold;
 }
 
 .rightAlign {
@@ -468,7 +528,7 @@ tbody tr:nth-child(even) {
 code,
 .highlighter-rouge,
 .highlighter-rouge .highlight {
-  background-color: var(--rgbLinkHover);
+  background-color: var(--rgbGray);
   border-radius: 0;
 }
 
