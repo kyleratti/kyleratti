@@ -2,13 +2,17 @@
 layout: simple
 ---
 
+{% if page.hasSolution %}
+  <a href="#solution" class="skipToSolution">(skip to solution)</a>
+{% endif %}
+
 {{ content }}
 
 <hr />
 
 <h3>Questions? Thoughts? Concerns?</h3>
 
-I'd love to hear from you! Send me an e-mail:
+I want to hear from you! Send me an e-mail:
 <a
   href="mailto:hi@kyleratti.me?subject={{ "Thoughts: " | append: page.title | url_encode }}"
   >hi@kyleratti.me</a
