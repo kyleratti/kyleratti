@@ -36,6 +36,12 @@
   --paddingLarge: 1em;
   --paddingMedium: 0.75em;
   --paddingSmall: 0.5em;
+
+  --contentMaxWidth: 75ch;
+
+  --pageWidth: 9;
+  --pageMinWidth: 350px;
+  --pageMaxWidth: 1192px;
 }
 /** END: Template variables */
 
@@ -188,7 +194,7 @@ nav ul li a:focus {
 #content a:after {
   display: inline-block;
   text-decoration: none;
-  padding-left: 0.2em;
+  padding: 0 0.3em;
   font-size: 0.85em;
   font-family: FontAwesome;
   font-display: block;
@@ -198,7 +204,7 @@ nav ul li a:focus {
 /** BEGIN: Anchor tag icons */
 #content a[href^="https://"]:after
 {
-  content: "🌎";
+  content: "\f35d";
 }
 
 #content a[href^="mailto:"]:after {
