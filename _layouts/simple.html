@@ -25,7 +25,10 @@
     <script src="https://kit.fontawesome.com/d85d4d6f28.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div id="background"></div>
+    <div id="background">
+      <div id="grid"></div>
+    </div>
+
     <div id="page">
       <nav id="top">
         <div id="navLinks">
@@ -51,10 +54,6 @@
         {% if page.custom-layout != true %}
           <h1 class="postTitle">{{ page.title }}</h1>
           <h2 class="postDate" title="{{ page.date | date: "%A, %B %e, %Y" }}">{{ page.date | date: "shared %Y-%m-%d" }}</h2>
-
-          {% if page.hasSolution %}
-            <a href="#solution">(skip to solution)</a>
-          {% endif %}
         {% endif %}
 
         <section>
