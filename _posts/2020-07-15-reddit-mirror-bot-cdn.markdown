@@ -18,7 +18,7 @@ This post is going to be a fairly deep dive on the approach I took to address se
 
 ## Average Traffic
 
-Tuckbot originally launched in August of 2018 in a very basic form. At some point, I took it offline and re-launched at `version 2.0` in September of 2019. It was during the re-launch that I added Google Analytics to the site for the first time, and since that time traffic has remained pretty consistent:
+Tuckbot originally launched in August of 2018 in a very basic form. At some point, I took it offline and re-launched at version 2 in September of 2019. It was during the re-launch that I added Google Analytics to the site for the first time, and since that time traffic has remained pretty consistent:
 
 <table style="max-width: 500px">
   <thead>
