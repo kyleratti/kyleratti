@@ -86,7 +86,7 @@ This comes out to an average of **215,823 users** and **316,550 page views** _pe
 
 ## Leveraging CloudFlare to Serve 316,550 Monthly Views
 
-[CloudFlare](https://cloudflare.com/) runs a massive global infrastructure of reverse proxy servers for web applications that's available in free and paid tiers. I have historically been a huge proponent of CloudFlare and their services; for small hobby projects like mine, they offer a service that hides your upstream server's IP address, checks that the request to your website is legitimate, and cache static content to speed up your site and reduce your bandwidth usage. That's pretty slick!
+[CloudFlare](https://cloudflare.com/) runs a massive global infrastructure of reverse proxy servers for web applications that's available in free and paid tiers. I have historically been a huge proponent of CloudFlare and their services; for small hobby projects like mine, they offer a service that hides your upstream server's IP address, checks that the request to your website is legitimate, and caches static content to speed up your site and reduce your bandwidth usage. That's pretty slick!
 
 By default, CloudFlare only caches text-based and image files - _not_ video files - however it turns out you _can_ force video files to be cached: The Page Rules feature of CloudFlare allows you to set specific URL patterns to **Cache Everything** on CloudFlare's edge:
 
