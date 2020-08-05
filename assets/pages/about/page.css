@@ -10,7 +10,6 @@
 }
 
 #aboutMe {
-  width: 85%;
   max-width: 450px;
   margin: 0 auto;
 }
@@ -107,6 +106,8 @@ h1 {
   flex-grow: 1;
   /* width: 35%; */
   text-align: center;
+  padding: var(--paddingSmall);
+  width: 33%;
 }
 
 .icon {
@@ -181,9 +182,6 @@ ul.naturalList {
 ul {
   list-style: outside;
 }
-.badge {
-  padding: var(--paddingSmall);
-}
 
 /** BEGIN: Medium layout */
 @media screen and (min-width: 600px) {
@@ -206,17 +204,18 @@ ul {
     grid-template-columns: var(--profileHeight) auto;
   }
 
+  .badge {
+    width: auto;
+  }
+
   .icon {
     font-size: 2em;
   }
 
-  .badge {
-    /* width: 50%; */
-  }
-
   #meat {
     margin-top: 1em;
-    max-width: 65ch;
+    padding: 5em;
+    padding-top: 0;
   }
 }
 
