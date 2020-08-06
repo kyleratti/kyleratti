@@ -190,7 +190,7 @@ section > blockquote {
   padding: 0.05em 0.2em;
   border-bottom: 2px solid var(--rgbAlt2);
   background-size: 100% 200%;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 
 #content a,
