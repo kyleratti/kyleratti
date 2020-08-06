@@ -486,6 +486,12 @@ p {
   margin: 1em 0;
 }
 
+blockquote {
+  color: lightgray;
+  border-color: var(--rgbLinks);
+  margin-left: 1em;
+}
+
 img {
   display: block;
   margin: 0 auto;
@@ -528,8 +534,9 @@ tbody tr:hover {
 code,
 .highlighter-rouge,
 .highlighter-rouge .highlight {
-  background-color: var(--rgbGray);
+  background-color: rgba(var(--colorGray), 0.7);
   border-radius: 0;
+  color: lightgray;
 }
 
 .highlight .s {
@@ -540,7 +547,11 @@ code,
   color: var(--rgbAlt);
 }
 .highlight .nv {
-  color: var(--rgbLinks);
+  color: var(--rgbAlt2);
+}
+
+.highlight .nt {
+  color: var(--rgbAlt);
 }
 
 .medium,
