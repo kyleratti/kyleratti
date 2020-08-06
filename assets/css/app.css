@@ -530,6 +530,10 @@ tbody tr:hover {
   text-align: right;
 }
 
+code {
+  display: inline-block;
+}
+
 code,
 .highlighter-rouge,
 .highlighter-rouge .highlight {
