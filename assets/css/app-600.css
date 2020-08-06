@@ -2,7 +2,8 @@ nav ul li {
   font-size: 1.6em;
 }
 
-.smallOnly {
+.smallOnly,
+.smallOnly-inline {
   display: none;
 }
 

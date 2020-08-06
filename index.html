@@ -1,47 +1,180 @@
 ---
 layout: simple
+tags:
+  - software developer
+  - web developer
+custom-layout: true
+assets:
+  css: true
 ---
 
-<h2>Categories</h2>
-<ul>
-  {% assign categories_list = site.categories %} {% if categories_list.first[0]
-  == null %} {% for category in categories_list %}
-  <li>
-    <a
-      href="#{{ category | downcase | downcase | url_escape | strip | replace: ' ', '-' }}"
-      >{{ category | camelcase }} ({{ site.tags[category].size }})</a
-    >
-  </li>
-  {% endfor %} {% else %} {% for category in categories_list %}
-  <li>
-    <a
-      href="#{{ category[0] | downcase | url_escape | strip | replace: ' ', '-' }}"
-      >{{ category[0] | camelcase }} ({{ category[1].size }})</a
-    >
-  </li>
-  {% endfor %} {% endif %} {% assign categories_list = nil %}
-</ul>
+<div id="aboutMe">
+  <div id="intro">
+    <picture id="profile">
+      <source
+        type="image/webp"
+        media="(max-width: 600px)"
+        srcset="/assets/img/me_small.webp"
+      />
+      <source
+        type="image/jpeg"
+        media="(max-width: 600px)"
+        srcset="/assets/img/me_small.jpg"
+      />
 
-{% for category in site.categories %}
-<h3 id="{{ category[0] | downcase | url_escape | strip | replace: ' ', '-' }}">
-  {{ category[0] | camelcase }}
-</h3>
-<ul>
-  {% assign pages_list = category[1] %} {% for post in pages_list %} {% if
-  post.title != null %} {% if group == null or group == post.group %}
-  <li>
-    <a href="{{ post.url }}" class="postLink"
-      >{{ post.title }}
-      <small
-        ><time
-          datetime="{{ post.date | date_to_xmlschema }}"
-          itemprop="datePublished"
-          >{{ post.date | date: "%B %d, %Y" }}</time
-        ></small
-      ></a
+      <source
+        type="image/webp"
+        media="(min-width: 600px)"
+        srcset="/assets/img/me_180.webp"
+      />
+      <source
+        type="image/jpeg"
+        media="(min-width: 600px)"
+        srcset="/assets/img/me_180.jpg"
+      />
+
+      <img src="/assets/img/me_medium.jpg" alt="Head shot picture of me" />
+    </picture>
+
+    <div id="contact">
+      <div id="email">
+        <i class="fa fa-envelope"></i>
+        <a href="mailto:hi@kyleratti.me">hi@kyleratti.me</a>
+      </div>
+      <div id="github">
+        <i class="fa fa-github"></i>
+        <a href="https://github.com/kyleratti" target="_blank">kyleratti</a>
+      </div>
+    </div>
+
+    <div id="name">
+      <h1>Kyle Ratti</h1>
+    </div>
+
+    <div id="stats">
+      <div class="badge" id="codeSlinger">
+        <div class="icon"><i class="fas fa-laptop-code"></i></div>
+        <div class="description">Code Slinger</div>
+      </div>
+      <div class="badge" id="carEnthusiast">
+        <div class="icon"><i class="fas fa-car"></i></div>
+        <div class="description">Car Enthusiast</div>
+      </div>
+      <div class="badge" id="pictureTaker">
+        <div class="icon"><i class="fas fa-film"></i></div>
+        <div class="description">Picture Taker</div>
+      </div>
+      <div class="badge" id="dogLover">
+        <div class="icon"><i class="fas fa-dog"></i></div>
+        <div class="description">Dog Lover</div>
+      </div>
+      <div class="badge" id="mdNative">
+        <div class="icon"><div id="mdFlag"></div></div>
+        <div class="description">Maryland Native</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="meat">
+  <p id="languages" class="naturalList">
+    <span class="glow">Hey! I'm Kyle,</span> a self-taught software developer
+    with experience in a multitude languages, including<span
+      class="mediumAndLarge-inline"
+      >:</span
     >
-  </li>
-  {% endif %} {% endif %} {% endfor %} {% assign pages_list = nil %} {% assign
-  group = nil %}
-</ul>
-{% endfor %}
+  </p>
+
+  <ul class="naturalList closer">
+    <li>
+      <a
+        href="https://github.com/kyleratti?tab=repositories&q=&type=&language=typescript"
+        target="_blank"
+        >TypeScript</a
+      >
+    </li>
+    <li>HTML, CSS, JavaScript</li>
+    <li>
+      <a
+        href="https://github.com/kyleratti?tab=repositories&q=&type=&language=powershell"
+        target="_blank"
+        >PowerShell</a
+      >
+    </li>
+    <li>C#</li>
+    <li>
+      <a
+        href="https://github.com/kyleratti?tab=repositories&q=&type=&language=lua"
+        target="_blank"
+        >Lua</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://github.com/kyleratti?tab=repositories&q=&type=&language=java"
+        target="_blank"
+        >Java</a
+      >
+    </li>
+  </ul>
+
+  <p class="naturalList">
+    I'm also experienced working with numerous tools and systems! A few of my
+    favorites are<span class="smallAndMedium-inline">:</span>
+  </p>
+
+  <ul class="naturalList closer">
+    <li>GitHub Actions</li>
+    <li>Docker</li>
+    <li>Hyper-V</li>
+    <li>Ubuntu Server</li>
+    <li>Windows Server</li>
+    <li>Active Directory</li>
+  </ul>
+
+  <p>
+    Outside of <a href="/programming">programming</a>, I love cars, coffee,
+    photography, and my cute-as-a-button dog,
+    <a href="https://tuckbot.tv/#/tucker">Tucker</a>.
+  </p>
+
+  <h2>Why I Code</h2>
+
+  <p>
+    When I was 12, a seemingly insignificant event changed my life forever:
+    <b>I went to a summer camp and played a Star Wars video game.</b>
+  </p>
+
+  <p>
+    I became obsessed with this game which eventually led to a chance virtual
+    meeting with a game modification developer named
+    <a href="https://github.com/robophred" target="_blank">@RoboPhred</a> who
+    took the time to show me how to program my own modifications. He has since
+    become a life-long mentor and friend!
+  </p>
+
+  <p>
+    As it turns out, <b>I like knowing how stuff works</b> and
+    <b>I <i>really</i> like building stuff that others can use.</b> From
+    <a href="https://github.com/kyleratti/tuckbot-downloader" target="_blank"
+      >video mirror bots</a
+    >
+    and
+    <a href="https://github.com/kyleratti/a-centralized-mirror" target="_blank"
+      >mirror directory listing bots</a
+    >
+    for Reddit communities, to
+    <a href="https://github.com/kyleratti/ttu-slideshow" target="_blank"
+      >auto-updating slideshow websites
+    </a>
+    and
+    <a href="https://github.com/kyleratti/tscw-daemon" target="_blank">
+      HTTP file relay servers</a
+    >
+    for my sister's work, I think it's the coolest thing in the world to
+    <b class="glow"
+      >be able to build something, watch it come to life, and see it used by
+      others!</b
+    >
+  </p>
+</div>
