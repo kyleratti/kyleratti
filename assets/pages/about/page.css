@@ -6,7 +6,7 @@
 
 #content > section {
   /* margin-top: 0.5em; */
-  padding: 0;
+  /* padding: 0; */
 }
 
 #aboutMe {
@@ -159,7 +159,6 @@ h1 {
 }
 
 #meat {
-  width: 85%;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -214,8 +213,6 @@ ul {
 
   #meat {
     margin-top: 1em;
-    padding: 5em;
-    padding-top: 0;
   }
 }
 
