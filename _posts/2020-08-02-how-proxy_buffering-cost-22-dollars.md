@@ -31,11 +31,11 @@ Although not stated in the NGINX docs, setting `proxy_buffering` to `off` will b
 
 Well, it doesn't, and I have the invoices and bandwidth graphs to prove it. See if you can spot where I pushed this change:
 
-![cdn-02 graph showing a spike in average bandwidth from < 30Mbps to > 80Mbps](/assets/2020-08-02-how-proxy_buffering-cost-22-dollars/cdn-02-graph.png)
+![cdn-02 graph showing a spike in average bandwidth from < 30Mbps to > 80Mbps](/assets/2020-08-02-how-proxy_buffering-cost-22-dollars/img/cdn-02-graph.png)
 
-![cdn-03 graph showing a spike in average bandwidth from < 30Mbps to > 60Mbps](/assets/2020-08-02-how-proxy_buffering-cost-22-dollars/cdn-03-graph.png)
+![cdn-03 graph showing a spike in average bandwidth from < 30Mbps to > 60Mbps](/assets/2020-08-02-how-proxy_buffering-cost-22-dollars/img/cdn-03-graph.png)
 
-![app-02 graph showing a spike in average bandwidth from < 30Mbps to > 140Mbps](/assets/2020-08-02-how-proxy_buffering-cost-22-dollars/app-02-graph.jpg)
+![app-02 graph showing a spike in average bandwidth from < 30Mbps to > 140Mbps](/assets/2020-08-02-how-proxy_buffering-cost-22-dollars/img/app-02-graph.jpg)
 
 My app server went from serving an average of 6Mbps to around 140Mbps, and spiked at one point to nearly 800Mbps!
 
@@ -47,11 +47,11 @@ Here's an example, using a 20MB file, of how this got so expensive so fast:
 
 > `$Visitor Request` &rarr; `LA CDN` &rarr; `NYC CDN` &rarr; `App Server` &rarr; `Object Storage`
 
-Or from a bandwidth perspective:
+Or if we visualize it, the black arrows are the request being filtered up the infrastructure, and the red arrows are the bandwidth being consumed by the servers uploading and downloading to each other:
 
-> `Object Storage: 20MB uploaded` &rarr; `App Server: 20MB downloaded` &rarr; `App Server: 20MB uploaded` &rarr; `NYC CDN: 20MB downloaded` &rarr; `NYC CDN: 20MB uploaded` &rarr; `LA CDN: 20MB downloaded` &rarr; `LA CDN: 20MB uploaded` &rarr; `$Visitor Request`
+<img src="/assets/2020-08-02-how-proxy_buffering-cost-22-dollars/img/bandwidth-flow.svg" alt="Graphic showing the consumption of 20MB of bandwidth as each server uploads and downloads to each other to fulfill the visitor request" />
 
-In this instance, we've moved this 20MB video **seven** times across the billable networks - three times at DigitalOcean, and four times at my CDN. Simple math says `7 * 20MB = 140MB` was consumed to serve a single 20MB video to a single visitor. Compare that to what happens normally:
+In this instance, we've moved this 20MB video **seven** times across billable networks - three times at DigitalOcean, and four times at my CDN. Simple math says `7 * 20MB = 140MB` was consumed to serve a single 20MB video to a single visitor. Compare that to what happens normally:
 
 > `LA CDN: 20MB uploaded` &rarr; `$Visitor Request`
 
