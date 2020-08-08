@@ -278,6 +278,12 @@ nav ul li a:active {
   content: "\f16c"; /* stackoverflow */
 }
 
+#content a[href^="https://youtube.com/"]:after,
+#content a[href^="https://www.youtube.com/"]:after
+{
+  content: "\f167"; /* youtube */
+}
+
 #content a[href="/programming"]:after {
   content: "\f5fc"; /* laptop-code */
 }
