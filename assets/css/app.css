@@ -164,8 +164,12 @@ nav {
   position: relative;
   grid-auto-flow: row;
   grid-template-columns: auto 5em;
+  width: 90%;
   height: 5em;
+  min-width: 350px;
+  max-width: 1300px;
   line-height: initial;
+  margin: var(--marginLarge) auto;
 }
 
 nav a,
@@ -319,13 +323,6 @@ a.postLink small {
   font-size: 0.7em;
 }
 
-nav {
-  width: 90%;
-  min-width: 350px;
-  max-width: 1300px;
-  margin: var(--marginSmall) auto;
-}
-
 nav ul li {
   display: inline-block;
   font-weight: bold;
@@ -400,6 +397,10 @@ h6,
 h1 {
   font-size: 1.45em;
   margin: var(--marginLarge);
+}
+
+h1:first-of-type {
+  margin-top: 0;
 }
 
 h2 {
