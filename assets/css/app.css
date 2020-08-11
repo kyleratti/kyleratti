@@ -639,6 +639,7 @@ img {
   background-color: var(--rgbBg);
   background-color: transparent;
   box-shadow: none;
+  border-radius: 0;
 }
 
 #sky {
