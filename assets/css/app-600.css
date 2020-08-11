@@ -2,6 +2,10 @@ nav ul li {
   font-size: 1.6em;
 }
 
+blockquote {
+  margin-left: 1em;
+}
+
 .smallOnly,
 .smallOnly-inline {
   display: none;

@@ -8,7 +8,7 @@
     <meta name="keywords" content="{{ page.tags | join: ", " }}" />
     <meta name="author" content="{{ site.author }}" />
 
-    <title>{{ page.title }} Kyle Ratti</title>
+    <title>{% if page.title %} {{ page.title }} {% else %} Kyle Ratti {% endif %}</title>
 
     
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
