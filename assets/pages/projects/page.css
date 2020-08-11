@@ -37,9 +37,14 @@
   text-align: left;
 }
 
+.projectCover {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 3px,
+    inset rgba(0, 0, 0, 0.2) 0px -1px 2px;
+}
+
 .projectCover img {
-  border-bottom: 2px solid var(--rgbBg);
   border-radius: 0;
+  box-shadow: none;
 }
 
 .projectCover,
@@ -48,7 +53,6 @@
   background-size: cover;
   width: 100%;
   height: var(--projectImageHeight);
-  box-shadow: none;
 }
 
 .dead {
