@@ -620,7 +620,8 @@ code,
 }
 
 .roundedCorners,
-.project {
+.project,
+hr {
   border-radius: 5px;
   overflow: hidden;
 }
