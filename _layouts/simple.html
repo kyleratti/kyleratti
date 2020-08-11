@@ -1,14 +1,29 @@
 {% assign pageNameNoExtension = page.name | remove: ".html" | remove: ".md" | remove: ".markdown" %}
+{% if page.title %}
+  {% assign pageTitle = page.title %}
+{% else %}
+  {% assign pageTitle = site.author %}
+{% endif %}
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="description" content="{{ site.description }}" />
+    <meta name="description" content="{% if page.description %} {{ page.description }} {% else %} {{ site.description }} {% endif %}" />
     <meta name="keywords" content="{{ page.tags | join: ", " }}" />
     <meta name="author" content="{{ site.author }}" />
 
-    <title>{% if page.title %} {{ page.title }} {% else %} Kyle Ratti {% endif %}</title>
+    <!-- Open Graph data -->
+    <meta property="og:title" content="{{ pageTitle }}" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    <meta property="og:image" content="{{ site.url }}/assets/img/me_180.jpg" />
+    <meta
+      property="og:description"
+      content="{% if page.description %} {{ page.description }} {% else %} {{ site.description }} {% endif %}"
+    />
+    <meta property="og:site_name" content="{{ site.author }}" />
+
+    <title>{{ pageTitle }}</title>
 
     
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />

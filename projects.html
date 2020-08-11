@@ -1,6 +1,17 @@
 ---
 layout: simple
 title: Projects
+description: >-
+  Check out some of my favorite things I've worked on
+tags:
+  - typescript
+  - javascript
+  - nodejs
+  - mysql
+  - sqlite
+  - reddit mirror bot
+  - reddit multiple sticky comments
+  - 124 spider abarth
 custom-layout: true
 assets:
   css: true
@@ -26,6 +37,9 @@ permalink: /projects
 <h2>Tech</h2>
 <div class="projectList">
   <div class="project" id="tuckbot">
+    <div class="projectTitle">
+      <h2>Tuckbot.tv</h2>
+    </div>
     <picture class="projectCover">
       <source
         type="image/webp"
@@ -56,9 +70,12 @@ permalink: /projects
     </picture>
     <div class="projectStack">
       <ul>
-        <li>TypeScript</li>
-        <li>React</li>
-        <li>API</li>
+        <li>
+          {% include icons/typescript.html %}
+        </li>
+        <li>{% include icons/react.html %}</li>
+        <li>{% include icons/api.html %}</li>
+        <li>{% include icons/backend.html %}</li>
       </ul>
     </div>
     <div class="projectInfo">
@@ -69,20 +86,6 @@ permalink: /projects
       ><span class="mediumAndLarge-inline">the cutest dog in the world,</span>
       Tucker.
     </div>
-    <!-- <div class="projectLinks">
-      <ul>
-        <li><i class="fab fa-react"></i></li>
-        <li></li>
-        <li>
-          <a
-            class="projectLink"
-            href="https://github.com/kyleratti/tuckbot-downloader"
-            target="_blank"
-            >Code</a
-          >
-        </li>
-      </ul>
-    </div> -->
     <a
       class="projectLink"
       href="https://github.com/kyleratti/tuckbot-downloader"
@@ -91,6 +94,9 @@ permalink: /projects
     >
   </div>
   <div class="project" id="amirrorbot">
+    <div class="projectTitle">
+      <h2>A Mirror Bot</h2>
+    </div>
     <picture class="projectCover">
       <source
         type="image/webp"
@@ -118,13 +124,15 @@ permalink: /projects
     </picture>
     <div class="projectStack">
       <ul>
-        <li>TypeScript</li>
-        <li>API</li>
-        <li>Web Service</li>
+        <li>
+          {% include icons/typescript.html %}
+        </li>
+        <li>{% include icons/api.html %}</li>
+        <li>{% include icons/service.html %}</li>
       </ul>
     </div>
     <div class="projectInfo">
-      Integrates with other bots (such as Tuckbot) to maintain a directory
+      Integrates with other bots (including Tuckbot) to maintain a directory
       listing of alternate video mirrors at the top of each reddit post.
     </div>
     <a
@@ -140,6 +148,9 @@ permalink: /projects
 
 <div class="projectList">
   <div class="project" id="mustang">
+    <div class="projectTitle">
+      <h2>Ford Mustang GT</h2>
+    </div>
     <picture class="projectCover">
       <source
         type="image/webp"
@@ -175,6 +186,9 @@ permalink: /projects
   </div>
 
   <div class="project dead" id="abarth124">
+    <div class="projectTitle">
+      <h2>Abarth 124 Spider</h2>
+    </div>
     <picture class="projectCover">
       <source
         type="image/webp"
@@ -204,9 +218,15 @@ permalink: /projects
       />
     </picture>
     <div class="projectInfo">
-      The Fiata, the <span class="nobreak">Italian Miata</span>, or as I called
-      it, the best worst car I had the pleasure of
-      <small>briefly :(</small> owning.
+      The Fiata, the <span class="nobreak">Italian Miata</span>, the
+      <span class="nobreak">"Little Red Lemon"</span>, or as I called it, the
+      best worst car I had the pleasure of <small>briefly :(</small> owning.
     </div>
   </div>
 </div>
+
+<p class="smaller center">
+  Special thanks to
+  <a href="https://www.instagram.com/_bomburi_/" target="_blank">_bomburi_</a>
+  for the project artwork!
+</p>

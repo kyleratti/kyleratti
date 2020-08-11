@@ -15,10 +15,11 @@
   display: grid;
   grid-template-areas:
     "cover"
-    "stack"
+    "title"
     "info"
+    "stack"
     "links";
-  grid-template-rows: var(--projectImageHeight) auto 1fr auto;
+  grid-template-rows: var(--projectImageHeight) auto auto 1fr auto;
   grid-template-columns: calc(var(--projectImageHeight) * 2);
   margin: var(--marginSmall);
   padding: 0;
@@ -29,38 +30,16 @@
   transform: scale(103%);
 }
 
-/* .project,
-.project:hover,
-.project:visited {
-  text-decoration: none;
-  font-weight: bold;
-  text-shadow: -1px 2px black;
-  background-image: linear-gradient(
-    to top,
-    var(--rgbAlt2) 50%,
-    var(--rgbLinkHover) 50%
-  );
-  padding: 0.05em 0.2em;
-  border-bottom: 2px solid var(--rgbAlt2);
-  background-size: 100% 200%;
+.projectTitle h2 {
+  text-shadow: 0 0 0.7em var(--rgbAlt);
+  color: var(--rgbAlt);
+  margin: var(--marginSmall) var(--marginSmall) 0;
+  text-align: left;
 }
 
-.project,
-.project:after,
-.project:hover,
-.project:visited {
-  transition: background-position 0.2s, color 0.15s, text-shadow 0.15s;
-} */
-
-/* .project::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-} */
+.projectCover img {
+  border-bottom: 2px solid var(--rgbBg);
+}
 
 .projectCover,
 .projectCover img {
@@ -86,15 +65,31 @@
 }
 
 .projectStack {
-  display: none;
+  /* display: none; */
   grid-area: stack;
   /* grid-row: 1; */
   align-self: end;
   font-size: 0.9em;
-  background-color: rgba(var(--colorBg), 0.5);
+  /* background-color: rgba(var(--colorBg), 0.5); */
   /* color: var(--rgbLinks); */
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.8em;
+}
+
+.projectStack ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  text-align: center;
+}
+
+.projectStack ul li {
+  display: inline-block;
+  flex-grow: 1;
+}
+
+.projectStack ul li:nth-child(even) {
+  background-color: rgba(var(--colorBg), 1);
 }
 
 .projectLinks ul {
@@ -107,10 +102,6 @@
 
 .projectLinks ul li {
   display: inline-block;
-  margin: 0 var(--marginSmall);
-  padding: 0 var(--paddingLarge);
-  /* text-shadow: -1px 2px black; */
-  /* font-weight: bold; */
 }
 
 .projectLinks ul li:nth-child(even) {
@@ -120,8 +111,9 @@
 .projectInfo {
   grid-area: info;
   padding: var(--paddingLarge);
+  padding-top: 0;
   /* var(--paddingSmall); */
-  text-align: center;
+  text-align: left;
   font-size: 0.9em;
   line-height: 125%;
 }

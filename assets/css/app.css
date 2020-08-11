@@ -264,6 +264,12 @@ nav ul li a:active {
   content: "\f09b"; /* github */
 }
 
+#content a[href^="https://instagram.com/"]:after,
+#content a[href^="https://www.instagram.com/"]:after
+{
+  content: "\f16d"; /* instagram */
+}
+
 #content a[href^="https://reddit.com/r/"]:after
 {
   content: "\f281"; /* reddit-alien */
@@ -373,12 +379,12 @@ nav ul li {
   font-family: "Saira", sans-serif;
 }
 
-#content h1,
-#content h2,
-#content h3,
-#content h4,
-#content h5,
-#content h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 .glow {
   color: var(--rgbAlt2);
   font-weight: bold;
@@ -391,50 +397,50 @@ nav ul li {
   text-transform: none;
 }
 
-#content h1 {
+h1 {
   font-size: 1.45em;
   margin: var(--marginLarge);
 }
 
-#content h2 {
+h2 {
   font-size: 1.35em;
 }
 
-#content h3 {
+h3 {
   font-size: 1.25em;
 }
 
-#content h2,
-#content h3,
-#content h4,
-#content h5,
-#content h6 {
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: var(--marginMedium);
 }
 
-#content h1,
-#content h2,
-#content h3,
-#content h4,
-#content h5,
-#content h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 h2.postDate,
 .glow {
   text-shadow: 0 0 0.7em var(--rgbAlt2);
 }
 
-#content h1.postTitle,
-#content h2.postDate {
+h1.postTitle,
+h2.postDate {
   display: block;
   margin: 0;
 }
 
-#content h1.postTitle {
+h1.postTitle {
   text-align: center;
   color: var(--rgbAlt);
 }
 
-#content h2.postDate {
+h2.postDate {
   /* text-align: right; */
   color: var(--rgbAlt2);
   font-size: 0.75em;
@@ -601,16 +607,35 @@ code,
   display: inline-block;
 }
 
+.small {
+  font-size: 0.8em;
+}
+
+.smaller {
+  font-size: 0.7em;
+}
+
+.center {
+  text-align: center;
+}
+
+.roundedCorners,
+.project {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
 #tsLogo {
   display: inline-block;
   background-image: url(/assets/img/icons/ts.svg);
   background-size: contain;
-  width: 24px;
-  height: 24px;
+  width: 1em;
+  height: 1em;
   padding: 0;
   margin: 0;
   /* background-color: var(--rbgBg); */
-  background-color: white;
+  background-color: var(--rgbBg);
+  background-color: transparent;
   box-shadow: none;
 }
 
