@@ -210,6 +210,7 @@ section {
 #content a:hover,
 #content a:visited {
   transition: background-position 0.2s, color 0.15s, text-shadow 0.15s;
+  transition-timing-function: ease-in-out;
 }
 
 #content a:hover,
@@ -350,6 +351,7 @@ table,
 img {
   box-shadow: 1px 1px var(--glowSize) var(--rgbLinks);
   transition: box-shadow 0.25s, transform 0.25s, filter 0.25s;
+  transition-timing-function: ease-in-out;
 }
 
 .boxShadow:hover,
