@@ -338,7 +338,7 @@ nav ul li:hover {
 }
 
 #content {
-  padding: var(--paddingMedium);
+  padding: 0 var(--paddingMedium);
   color: white;
 }
 
