@@ -97,7 +97,7 @@
   font-size: 0.8em;
 }
 
-ul {
+.projectLinks ul {
   display: flex;
   list-style: none;
   text-align: center;
@@ -105,7 +105,7 @@ ul {
   justify-content: space-evenly;
 }
 
-ul li {
+.projectLinks ul li {
   display: inline-block;
   margin: 0 var(--marginSmall);
   padding: 0 var(--paddingLarge);
@@ -113,7 +113,7 @@ ul li {
   /* font-weight: bold; */
 }
 
-ul li:nth-child(even) {
+.projectLinks ul li:nth-child(even) {
   background-color: rgba(var(--colorBg), 1);
 }
 
