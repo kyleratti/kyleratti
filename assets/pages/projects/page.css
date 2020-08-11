@@ -119,7 +119,8 @@ ul li:nth-child(even) {
 
 .projectInfo {
   grid-area: info;
-  padding: var(--paddingSmall);
+  padding: var(--paddingLarge);
+  /* var(--paddingSmall); */
   text-align: center;
   font-size: 0.9em;
   line-height: 125%;
