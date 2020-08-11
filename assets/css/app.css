@@ -574,7 +574,6 @@ code,
 .highlighter-rouge,
 .highlighter-rouge .highlight {
   background-color: rgba(var(--colorGray), 0.7);
-  border-radius: 0;
   color: lightgray;
 }
 
@@ -619,9 +618,12 @@ code,
   text-align: center;
 }
 
+.boxShadow,
 .roundedCorners,
 .project,
-hr {
+hr,
+img,
+section {
   border-radius: 5px;
   overflow: hidden;
 }

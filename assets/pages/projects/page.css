@@ -39,6 +39,7 @@
 
 .projectCover img {
   border-bottom: 2px solid var(--rgbBg);
+  border-radius: 0;
 }
 
 .projectCover,
