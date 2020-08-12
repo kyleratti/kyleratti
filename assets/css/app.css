@@ -100,10 +100,6 @@ ul {
 */
 #background {
   overflow: hidden;
-}
-
-#background::before {
-  content: " ";
   position: fixed;
   min-width: 100vw;
   min-height: 100vh;
