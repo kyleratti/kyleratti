@@ -123,6 +123,16 @@
   line-height: 125%;
 }
 
+.projectInfo > p:first-child {
+  padding: 0;
+  margin: 0;
+}
+
+.projectInfo > p:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
 #content .projectLinks {
   grid-area: links;
 }
