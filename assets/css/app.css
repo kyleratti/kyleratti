@@ -143,8 +143,8 @@ ul {
   height: 40em;
   perspective: 1000px;
   margin-top: 20em;
+  transform: perspective(200px) rotateX(45deg) scale(2);
   z-index: -1;
-  transform: perspective(200px) rotateX(45deg) scale(2) translate3d(0, 0, -1px);
 }
 
 #page {
