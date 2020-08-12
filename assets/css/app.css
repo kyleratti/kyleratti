@@ -100,7 +100,6 @@ ul {
 */
 #background {
   overflow: hidden;
-  position: relative;
 }
 
 #background::before {
