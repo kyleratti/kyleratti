@@ -106,8 +106,8 @@ ul {
 #background::before {
   content: " ";
   position: fixed;
-  min-width: 100%;
-  min-height: 100%;
+  min-width: 100vw;
+  min-height: 100vh;
   top: 0;
   left: 0;
   background: radial-gradient(ellipse at 140% 90%, #09000f, transparent 50%),
