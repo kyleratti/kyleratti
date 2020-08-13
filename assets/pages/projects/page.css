@@ -158,6 +158,7 @@
     var(--rgbAlt2) 50%,
     var(--rgbBg) 50%
   );
+  border-bottom-width: 4px;
 }
 
 @media screen and (min-width: 600px) {
