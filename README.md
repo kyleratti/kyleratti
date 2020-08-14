@@ -1,5 +1,3 @@
-# `kyleRatti.ts`
-
 ```typescript
 const about = {
   name: "Kyle Ratti",
