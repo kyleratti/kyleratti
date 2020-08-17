@@ -248,6 +248,7 @@ ul {
 
   ul.naturalList li {
     display: inline-block;
+    vertical-align: top;
   }
 
   ul.naturalList li:not(:last-child):after {
