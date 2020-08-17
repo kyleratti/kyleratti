@@ -46,6 +46,9 @@
   --rgbLinkHover: rgb(var(--colorLinkHover));
 
   --rgbGray: rgb(var(--colorGray));
+
+  --rgbTransparent: rgba(255, 255, 255, 0);
+  /* This is a workaround for Safari handling the color 'transparent' strangely */
 }
 /** END: Color template */
 
@@ -105,8 +108,17 @@ ul {
   min-height: 100vh;
   top: 0;
   left: 0;
-  background: radial-gradient(ellipse at 140% 90%, #09000f, transparent 50%),
-    radial-gradient(ellipse at 76% 10%, #606, #2d1744 30%, transparent),
+  background: radial-gradient(
+      ellipse at 140% 90%,
+      rgb(9, 0, 15),
+      rgba(9, 0, 15, 0) 50%
+    ),
+    radial-gradient(
+      ellipse at 76% 10%,
+      #606,
+      rgb(45, 23, 68) 30%,
+      rgba(45, 23, 68, 0)
+    ),
     linear-gradient(
       135deg,
       #09000f 2%,
@@ -139,13 +151,48 @@ ul {
       rgba(0, 0, 0, 0) 0px
     );
   background-size: 4em 2em, 4em 2em;
-  background-color: transparent;
+  background-color: var(--rgbTransparent);
   height: 40em;
   perspective: 1000px;
-  margin-top: 20em;
+  margin-top: 15em;
   transform: perspective(200px) rotateX(45deg) scale(2);
   z-index: -1;
 }
+
+/** BEGIN: Safari hack */
+/**
+* Safari's rendering engine is blowing the grid up and positioning
+* it in crazy spots. This hack reduces the spacing and keeps the grid
+* on the screen.
+* Source: https://browserstrangeness.bitbucket.io/css_hacks.html#safari
+*/
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+    #grid {
+      margin-top: 20em;
+    }
+
+    /**
+    * Without this, the grid will vanish in landscape view
+    */
+    @media (orientation: landscape) {
+      #grid {
+        margin-top: 0;
+      }
+    }
+
+    /**
+    * Shifts the grid much further down the page where it should be
+    * on high-res macOS displays
+    */
+    @media (min-width: 900px) {
+      #grid {
+        margin-top: 20%;
+      }
+    }
+  }
+}
+/** END: Safari hack */
 
 #page {
   width: 100%;
@@ -229,7 +276,7 @@ section {
   * when a border is added onto anchor tags.
 */
 nav ul li a {
-  border: 2px solid transparent;
+  border: 2px solid var(--rgbTransparent);
 }
 
 nav ul li a:focus,
@@ -332,14 +379,6 @@ nav ul li:hover {
 #content {
   padding: 0 var(--paddingMedium);
   color: white;
-}
-
-#sectionFill {
-  position: relative;
-  top: 0;
-  left: 0;
-  background: linear-gradient(0, rgba(var(--colorBg), 1) 0, transparent 40%);
-  background-attachment: fixed;
 }
 
 .boxShadow,
@@ -495,21 +534,35 @@ hr {
 }
 
 section {
-  padding: 1em;
-  padding-top: 0;
+  position: relative;
+  padding: 0.25em 1em;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 3px,
     inset rgba(0, 0, 0, 0.2) 0px -1px 2px;
   background: linear-gradient(
     to top,
     rgba(var(--colorBg), 1) 0,
-    transparent 40%
+    rgba(var(--colorBg), 0) 40%
   );
   background-attachment: fixed;
 }
 
+/**
+* For mobile/touch devices, we use a set color background instead of
+* a fixed gradient. Unfortunately fixed-backgrounds are very
+* expensive to paint and is usually ignored on mobile rendering
+* engines - particularly iOS. For the time being, we'll stick to gradients
+* on desktop devices.
+*/
+@media (hover: none) {
+  section {
+    background-color: rgba(var(--colorBg), 0.45);
+    background-attachment: initial;
+  }
+}
+
 section:first-of-type {
   margin-top: 0;
-  padding-top: 0;
+  padding-top: 0.25em;
 }
 
 p {
@@ -633,7 +686,7 @@ img {
   margin: 0;
   /* background-color: var(--rbgBg); */
   background-color: var(--rgbBg);
-  background-color: transparent;
+  background-color: var(--rgbTransparent);
   box-shadow: none;
   border-radius: 0;
 }
@@ -669,7 +722,7 @@ img {
   background: radial-gradient(
     var(--rgbAlt2),
     var(--rgbAlt) 25%,
-    transparent 50%
+    rgba(var(--colorAlt), 0) 50%
   );
 }
 
@@ -688,7 +741,7 @@ img {
   background: radial-gradient(
     var(--rgbAlt2),
     var(--rgbAlt) 25%,
-    transparent 50%
+    rgba(var(--colorAlt), 0) 50%
   );
 }
 
@@ -707,6 +760,43 @@ img {
   border-radius: 50%;
   width: 100%;
   height: 100%;
+  /* prettier-ignore */
+  -webkit-clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 50%,
+    0% 50%,
+    /** No draw between 50% and 52% */
+    0% 52%, /** BEGIN: Clip */
+    100% 52%, /** END: Clip */
+    100% 58%, /** BEGIN: Draw */
+    0% 58%, /** END: Draw */
+    /** No draw between 56% and 61% */
+    0% 61%,
+    100% 61%,
+    100% 66%,
+    0% 66%,
+    /** No draw between 66% and 70% */
+    0% 70%,
+    100% 70%,
+    100% 74%,
+    0% 74%,
+    /** No draw between 74% and 79% */
+    0% 79%,
+    100% 79%,
+    100% 82%,
+    0% 82%,
+    /** No draw between 82% and 86% */
+    0% 86%,
+    100% 86%,
+    100% 88%,
+    0% 88%,
+    /** No draw between 88% and 92% */
+    0% 92%,
+    100% 92%,
+    100% 94%,
+    0% 94%
+  );
   /* prettier-ignore */
   clip-path: polygon(
     0% 0%,
