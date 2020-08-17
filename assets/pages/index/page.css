@@ -247,7 +247,7 @@ ul {
   }
 
   ul.naturalList li {
-    display: inline-block;
+    display: inline;
   }
 
   ul.naturalList li:not(:last-child):after {
