@@ -540,7 +540,7 @@ section {
     inset rgba(0, 0, 0, 0.2) 0px -1px 2px;
   background: linear-gradient(
     to top,
-    rgba(var(--colorBg), 1) 0,
+    rgba(var(--colorBg), 1),
     rgba(var(--colorBg), 0) 60%
   );
   background-attachment: fixed;
@@ -731,20 +731,6 @@ img {
   --sunOffsetLeft: 0;
 }
 
-#sunGlow {
-  display: none;
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  top: -50%;
-  left: -50%;
-  background: radial-gradient(
-    var(--rgbAlt2),
-    var(--rgbAlt) 25%,
-    rgba(var(--colorAlt), 0) 50%
-  );
-}
-
 #sun {
   overflow: hidden;
   position: absolute;
@@ -834,32 +820,4 @@ img {
     100% 94%,
     0% 94%
   );
-}
-
-.sunbeam {
-  display: none;
-  position: relative;
-  background-color: var(--rgbBg);
-  width: 100%;
-  box-shadow: 1px 1px 1px 1px var(--rgbBg);
-}
-
-.sunbeam-1 {
-  top: 55%;
-  height: 0.1em;
-}
-
-.sunbeam-2 {
-  top: 60%;
-  height: 0.2em;
-}
-
-.sunbeam-3 {
-  top: 65%;
-  height: 0.35em;
-}
-
-.sunbeam-4 {
-  top: 70%;
-  height: 0.4em;
 }
