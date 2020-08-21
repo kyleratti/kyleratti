@@ -541,7 +541,7 @@ section {
   background: linear-gradient(
     to top,
     rgba(var(--colorBg), 1) 0,
-    rgba(var(--colorBg), 0) 40%
+    rgba(var(--colorBg), 0) 60%
   );
   background-attachment: fixed;
 }
