@@ -8,7 +8,7 @@ tags:
   - abarth
 ---
 
-It has been a little while since I've truly stopped and appreciated how the <abbr title="Fiat's Miata">Fiata</abbr>'s styling. I like it so much more than the Miata of the same generation.
+It has been a little while since I've truly stopped and appreciated the <abbr title="Fiat's Miata">Fiata</abbr>'s styling. I like it so much more than the Miata of the same generation.
 
 <picture>
   <source
