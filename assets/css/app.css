@@ -296,6 +296,13 @@ nav ul li a:active {
 }
 
 /** BEGIN: Anchor tag icons */
+#content a[href$=".jpg"]::after,
+#content a[href$=".jpeg"]::after,
+#content a[href$=".png"]::after,
+#content a[href$=".webp"]::after {
+  content: "\f03e"; /* image */
+}
+
 #content a[href^="https://"]:after
 {
   content: "\f35d";
@@ -354,7 +361,6 @@ nav ul li a:active {
 #content a[href="/tucker"]:after {
   content: "\f1b0"; /* paw */
 }
-
 /** END: Anchor tag icons */
 
 a.postLink small:before {
