@@ -4,11 +4,6 @@
   --nameSize: 2.2em;
 }
 
-#content > section {
-  /* margin-top: 0.5em; */
-  /* padding: 0; */
-}
-
 #aboutMe {
   max-width: 450px;
   margin: 0 auto;
@@ -230,10 +225,6 @@ ul {
 
   #name h1 {
     text-align: center;
-  }
-
-  .badge {
-    /* width: 50%; */
   }
 
   #languages,
