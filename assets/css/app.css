@@ -340,6 +340,12 @@ nav ul li a:active {
   content: "\f16c"; /* stackoverflow */
 }
 
+#content a[href^="https://en.wikipedia.org/"]:after,
+#content a[href^="https://wikipedia.org/"]:after
+{
+  content: "\f266"; /* wikipedia-w */
+}
+
 #content a[href^="https://youtube.com/"]:after,
 #content a[href^="https://www.youtube.com/"]:after
 {
