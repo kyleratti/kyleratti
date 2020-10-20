@@ -49,7 +49,7 @@ Amazing when you consider that I am far from the strongest person you'll meet!
 
 The right tool is a proper [caliper compression tool kit](https://smile.amazon.com/gp/product/B01FW3U26G/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1) which has a ton of presets for various manufacturers, is made of high-quality metal and has an attachment tool that is designed to retract pistons with minimal effort and frustration.
 
-Somehow, despite knowing that "The Right Tool is the Best Tool", I ended up trying to make a dumb little cube work when there's specific tool kits for this.
+Somehow, despite knowing that "The Right Tool is the Best Tool", I ended up trying to make a dumb little cube work when there's specific tool kits for this. And despite doing a handful of brake jobs before, and finally feeling like I owned a pretty decent set of tools, it's obvious that there's never enough tools. I'm beginning to think there's a conspiracy!
 
 # Awesome Friends
 
