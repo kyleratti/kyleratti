@@ -11,6 +11,7 @@ const skills = {
     "HTML/CSS/JavaScript",
     "PowerShell",
     "C#",
+    "F#",
     "Lua",
     "Java",
   ],
@@ -19,7 +20,7 @@ const skills = {
     server: ["Windows Server", "Ubuntu Server"],
     desktop: ["Windows", "Ubuntu", "macOS"],
   },
-  tools: ["GitHub Actions", "Docker", "Hyper-V", "VSCode"],
+  tools: ["GitHub Actions", "Docker", "Hyper-V", "VSCode", "Visual Studio"],
 };
 
 const hobbies = [
@@ -33,8 +34,8 @@ const hobbies = [
 ];
 
 export const kyleRatti = {
-  about: { ...about },
-  skills: { ...skills },
-  hobbies: { ...hobbies },
+  about,
+  skills,
+  hobbies,
 };
 ```
