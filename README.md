@@ -6,32 +6,16 @@ const about = {
 };
 
 const skills = {
-  languages: [
-    "TypeScript",
-    "HTML/CSS/JavaScript",
-    "PowerShell",
-    "C#",
-    "F#",
-    "Lua",
-    "Java",
-  ],
-  databases: ["MySQL", "SQLite"],
+  languages: ["C#", "F#", "TypeScript", "JavaScript", "HTML", "CSS", "PowerShell", "Lua"],
+  databases: ["SQL Server", "SQLite", "Postgres", "CosmosDB"],
   operatingSystems: {
-    server: ["Windows Server", "Ubuntu Server"],
-    desktop: ["Windows", "Ubuntu", "macOS"],
+    server: ["Ubuntu Server", "Windows Server"],
+    desktop: ["Windows", "Ubuntu"],
   },
-  tools: ["GitHub Actions", "Docker", "Hyper-V", "VSCode", "Visual Studio"],
+  tools: ["GitHub Actions", "Docker", "Hyper-V", "VS Code", "Rider", "Visual Studio"],
 };
 
-const hobbies = [
-  "Biking",
-  "Cars",
-  "Gaming",
-  "Homelab",
-  "Photography",
-  "Programming",
-  "RC Cars",
-];
+const hobbies = ["Biking", "Cars", "Gaming", "Photography", "Programming", "RC Cars"];
 
 export const kyleRatti = {
   about,
